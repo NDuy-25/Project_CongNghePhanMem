@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f408164827547d8ab12c743e9066d59" Name="Diagram1">
+        <EntityTypeShape EntityType="COFFEEModel.AIChat" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.AITinNhan" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.ChiTietDonHang" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.ChiTietGioHang" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.DanhGia" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.DanhMuc" Width="1.5" PointX="1.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.DiaChiGiaoHang" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.DonHang" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.GioHang" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.HinhAnhSanPham" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.NguoiDung" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.SanPham" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEEModel.ThanhToan" Width="1.5" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <AssociationConnector Association="COFFEEModel.FK__AIChat__MaND__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__AIChat__MaSP__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__AITinNhan__MaCha__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__ChiTietDon__MaDH__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__ChiTietDon__MaSP__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__ChiTietGio__MaGH__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__ChiTietGio__MaSP__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DanhGia__MaND__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DanhGia__MaSP__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__SanPham__MaDM__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DiaChiGiao__MaND__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DonHang__MaDC__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DonHang__MaND__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DonHang__MaNguoi__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DonHang__MaNVDuy__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__DonHang__MaNVGia__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__ThanhToan__MaDH__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__GioHang__MaND__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEEModel.FK__HinhAnhSan__MaSP__4AB81AF0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Thanh toán thành công";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/ThanhToanThanhCong.css" />
+
+<div class="success-wrapper">
+    <div class="success-card">
+
+        <div class="success-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h2 class="success-title">Thanh toán thành công!</h2>
+        <p class="success-sub">
+            Cảm ơn bạn đã đặt hàng tại <b>12 COFFEE</b> ☕
+            Đơn hàng của bạn đang được xử lý.
+        </p>
+
+        <div class="order-info">
+            <p><span>Mã đơn hàng:</span> #@ViewBag.MaDH</p>
+            <p>
+                <span>Số tiền:</span>
+                @(ViewBag.TongTien != null
+                    ? String.Format("{0:0,0}đ", ViewBag.TongTien)
+                    : "Không rõ")
+            </p>
+            <p><span>Trạng thái:</span> Đang chuẩn bị hàng</p>
+            <p><span>Thời gian:</span> @DateTime.Now.ToString("dd/MM/yyyy HH:mm")</p>
+        </div>
+
+        <div class="success-actions">
+            <a href="@Url.Action("Menu","Home_65130628")" class="btn-home">
+                Tiếp tục mua sắm
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Đặt hàng thành công";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/Cart.css" />
+
+<div class="cart-wrapper fade-in-up">
+    <div class="cart-summary-box">
+        <h2>Cảm ơn bạn đã đặt hàng tại 12 COFFEE</h2>
+
+        <p>Mã đơn hàng: <strong>@ViewBag.MaDH</strong></p>
+        <p>Khách hàng: <strong>@ViewBag.HoTen</strong></p>
+        <p>Điện thoại: @ViewBag.DienThoai</p>
+        <p>Địa chỉ: @ViewBag.DiaChi</p>
+
+        @if (!String.IsNullOrEmpty((string)ViewBag.GhiChu))
+        {
+            <p>Ghi chú: @ViewBag.GhiChu</p>
+        }
+
+        <p>Tổng tiền: <strong>@String.Format("{0:0,0}đ", ViewBag.TongTien)</strong></p>
+        <p>Phương thức thanh toán: @ViewBag.PhuongThuc</p>
+        <p>Thời gian: @((DateTime)ViewBag.ThoiGian)</p>
+
+        <div class="summary-actions" style="margin-top:18px;">
+            <a href="@Url.Action("Menu","Home_65130628")" class="btn-continue">
+                Tiếp tục mua hàng
+            </a>
+        </div>
+
+        <p class="summary-note" style="margin-top:10px;">
+            Nhân viên 12 COFFEE sẽ liên hệ xác nhận đơn trong thời gian sớm nhất.
+        </p>
+    </div>
+</div>

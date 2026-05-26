@@ -1,0 +1,97 @@
+﻿@model IEnumerable<QL12COFFEE_65130628.Models.SanPham>
+
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!-- =============== HERO =============== -->
+<div class="home-hero">
+    <div class="home-hero-overlay"></div>
+
+    <div class="home-hero-content">
+        <h1>WELCOME TO <span>12 COFFEE</span></h1>
+        <p>
+            Không gian cà phê hiện đại, nhẹ nhàng – nơi bạn có thể thư giãn,
+            học tập, làm việc và trò chuyện cùng bạn bè tại Vạn Ninh.
+        </p>
+
+        <div class="home-hero-buttons">
+            <a href="@Url.Action("Menu","Home_65130628")" class="btn btn-primary">Xem Menu</a>
+            <a href="@Url.Action("Index","GioHang_65130628")" class="btn btn-outline">Giỏ hàng của bạn</a>
+        </div>
+    </div>
+</div>
+
+<!-- =============== SẢN PHẨM NỔI BẬT =============== -->
+<div class="home-section">
+    <div class="home-section-header">
+        <h2>SẢN PHẨM NỔI BẬT</h2>
+        <p>Top món được yêu thích nhất tại 12 COFFEE</p>
+    </div>
+
+    <div class="home-products-grid">
+        @foreach (var sp in Model)
+        {
+            var ha = sp.HinhAnhSanPhams.FirstOrDefault();    
+
+            <div class="product-card scroll-animate delay-1">
+                <img src="@Url.Content("~/Content/Images/" + (ha != null ? ha.DuongDan : "no-image.jpg"))"
+                     alt="@sp.TenSP"
+                     class="product-img" />
+
+                <div class="product-info">
+                    <h3>@sp.TenSP</h3>
+
+                    <p>
+                        @(string.IsNullOrEmpty(sp.MoTa)
+                        ? "Thức uống được ưa chuộng tại 12 Coffee."
+                        : sp.MoTa)
+                    </p>
+
+                    <div class="product-meta">
+                        <span class="price">@String.Format("{0:0,0}đ", sp.Gia)</span>
+                        <a href="@Url.Action("Them","GioHang_65130628", new { maSP = sp.MaSP })"
+                           class="btn btn-primary btn-sm">
+                            Đặt ngay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- =============== VÌ SAO CHỌN 12 COFFEE =============== -->
+<div class="home-section home-reason">
+    <div class="home-section-header">
+        <h2>VÌ SAO CHỌN 12 COFFEE?</h2>
+        <p>Không chỉ là đồ uống – đó là cả trải nghiệm.</p>
+    </div>
+
+    <div class="home-reason-grid">
+        <div class="reason-item scroll-animate delay-1">
+            <i class="fa-solid fa-mug-saucer"></i>
+            <h4>Cà phê chất lượng</h4>
+            <p>Hương vị đậm đà – rang chuẩn – hậu vị khó quên.</p>
+        </div>
+
+        <div class="reason-item scroll-animate delay-2">
+            <i class="fa-solid fa-chair"></i>
+            <h4>Không gian chill</h4>
+            <p>Decor hiện đại – phù hợp học nhóm, làm việc, gặp gỡ.</p>
+        </div>
+
+        <div class="reason-item scroll-animate delay-3">
+            <i class="fa-solid fa-wifi"></i>
+            <h4>Wifi mạnh</h4>
+            <p>Mượt mà, ổn định cho học tập & làm việc online.</p>
+        </div>
+
+        <div class="reason-item scroll-animate delay-4">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h4>Giao hàng nhanh</h4>
+            <p>Đặt online – giao nhanh tại Vạn Ninh.</p>
+        </div>
+    </div>
+</div>

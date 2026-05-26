@@ -1,0 +1,925 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\home\\gioithieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\home\\gioithieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\admin\\chitietnguoidung.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\admin\\chitietnguoidung.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\sanphamadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\sanphamadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\sanphamadmin\\themsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\sanphamadmin\\themsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\sanphamadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\sanphamadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\donhangadmin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\donhangadmin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\donhangadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\donhangadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\admin\\themnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\admin\\themnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nhanviengiaohang\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nhanviengiaohang\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\admin\\thongtinnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\admin\\thongtinnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\donhangadmin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\donhangadmin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\donhangadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\donhangadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\donhangadmin\\dondaduyet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\donhangadmin\\dondaduyet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\sanphamadmin\\suasanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\sanphamadmin\\suasanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\admin\\quanlynguoidung.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\admin\\quanlynguoidung.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\nhanviengiaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\nhanviengiaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\nhanvienduyetdoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\nhanvienduyetdoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nhanvienduyetdon\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nhanvienduyetdon\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\giohang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\giohang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nguoidungs\\dangky.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nguoidungs\\dangky.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\thanhtoan\\thanhtoanthanhcong.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\thanhtoan\\thanhtoanthanhcong.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\home\\lienhe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\home\\lienhe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\giohang\\thanhtoanthanhcong.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\giohang\\thanhtoanthanhcong.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\donhangadmin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\donhangadmin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\admin\\doanhthu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\admin\\doanhthu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nguoidungs\\xacthucotpreset.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nguoidungs\\xacthucotpreset.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nguoidungs\\xacthucotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nguoidungs\\xacthucotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nguoidungs\\quenmatkhau.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nguoidungs\\quenmatkhau.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nguoidungs\\datlaimatkhau.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nguoidungs\\datlaimatkhau.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nguoidungs\\dangnhap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nguoidungs\\dangnhap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\nguoidungs\\doimatkhau.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\nguoidungs\\doimatkhau.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\shared\\_layoutuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\shared\\_layoutuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\content\\thanhtoanthanhcong.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:content\\thanhtoanthanhcong.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\content\\bootstrap-grid.rtl.min.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:content\\bootstrap-grid.rtl.min.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\services\\payosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:services\\payosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\thanhtoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\thanhtoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\thongkeadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\thongkeadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\web.release.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:web.release.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\models\\callbackmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:models\\callbackmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\controllers\\nguoidungscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:controllers\\nguoidungscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|d:\\cong_nghe_phan_mem\\app12coffee\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5C251C5D-48C9-4F82-8CE4-8F0F85B9BC05}|App12COFFEE.csproj|solutionrelative:views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\SanPhamAdmin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\SanPhamAdmin\\Index.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\SanPhamAdmin\\Index.cshtml",
+              "RelativeToolTip": "Views\\SanPhamAdmin\\Index.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:50.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\DonHangAdmin\\Delete.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Delete.cshtml",
+              "RelativeToolTip": "Views\\DonHangAdmin\\Delete.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:38:33.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SanPhamAdminController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\SanPhamAdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SanPhamAdminController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\SanPhamAdminController.cs",
+              "RelativeToolTip": "Controllers\\SanPhamAdminController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAADwv7QAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:51:09.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ThemSanPham.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\SanPhamAdmin\\ThemSanPham.cshtml",
+              "RelativeDocumentMoniker": "Views\\SanPhamAdmin\\ThemSanPham.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\SanPhamAdmin\\ThemSanPham.cshtml",
+              "RelativeToolTip": "Views\\SanPhamAdmin\\ThemSanPham.cshtml",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAgwJcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:36:07.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChiTietNguoiDung.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\ChiTietNguoiDung.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ChiTietNguoiDung.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\ChiTietNguoiDung.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ChiTietNguoiDung.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:37:14.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GioiThieu.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Home\\GioiThieu.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\GioiThieu.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Home\\GioiThieu.cshtml",
+              "RelativeToolTip": "Views\\Home\\GioiThieu.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:34:33.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DonHangAdminController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\DonHangAdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DonHangAdminController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\DonHangAdminController.cs",
+              "RelativeToolTip": "Controllers\\DonHangAdminController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAADwv+oAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:46:11.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ThemNhanVien.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\ThemNhanVien.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ThemNhanVien.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\ThemNhanVien.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ThemNhanVien.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:38:07.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAIwMMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:43:50.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NhanVienGiaoHang\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\NhanVienGiaoHang\\Dashboard.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NhanVienGiaoHang\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\NhanVienGiaoHang\\Dashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:11.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ThongTinNhanVien.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\ThongTinNhanVien.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ThongTinNhanVien.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\ThongTinNhanVien.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ThongTinNhanVien.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:38:25.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\DonHangAdmin\\Edit.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Edit.cshtml",
+              "RelativeToolTip": "Views\\DonHangAdmin\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:38:49.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\DonHangAdmin\\Index.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Index.cshtml",
+              "RelativeToolTip": "Views\\DonHangAdmin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:38:56.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DonDaDuyet.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\DonDaDuyet.cshtml",
+              "RelativeDocumentMoniker": "Views\\DonHangAdmin\\DonDaDuyet.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\DonDaDuyet.cshtml",
+              "RelativeToolTip": "Views\\DonHangAdmin\\DonDaDuyet.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:38:43.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SuaSanPham.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\SanPhamAdmin\\SuaSanPham.cshtml",
+              "RelativeDocumentMoniker": "Views\\SanPhamAdmin\\SuaSanPham.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\SanPhamAdmin\\SuaSanPham.cshtml",
+              "RelativeToolTip": "Views\\SanPhamAdmin\\SuaSanPham.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:59.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "QuanLyNguoiDung.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\QuanLyNguoiDung.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\QuanLyNguoiDung.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\QuanLyNguoiDung.cshtml",
+              "RelativeToolTip": "Views\\Admin\\QuanLyNguoiDung.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:37:46.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NhanVienGiaoHangController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\NhanVienGiaoHangController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NhanVienGiaoHangController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\NhanVienGiaoHangController.cs",
+              "RelativeToolTip": "Controllers\\NhanVienGiaoHangController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:50:05.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\packages.config",
+              "RelativeDocumentMoniker": "packages.config",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\packages.config",
+              "RelativeToolTip": "packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-26T05:40:30.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NhanVienDuyetDonController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\NhanVienDuyetDonController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NhanVienDuyetDonController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\NhanVienDuyetDonController.cs",
+              "RelativeToolTip": "Controllers\\NhanVienDuyetDonController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:49:21.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NhanVienDuyetDon\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\NhanVienDuyetDon\\Dashboard.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NhanVienDuyetDon\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\NhanVienDuyetDon\\Dashboard.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:08.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\GioHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\GioHang\\Index.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\GioHang\\Index.cshtml",
+              "RelativeToolTip": "Views\\GioHang\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:39:06.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ThanhToanThanhCong.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\ThanhToan\\ThanhToanThanhCong.cshtml",
+              "RelativeDocumentMoniker": "Views\\ThanhToan\\ThanhToanThanhCong.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\ThanhToan\\ThanhToanThanhCong.cshtml",
+              "RelativeToolTip": "Views\\ThanhToan\\ThanhToanThanhCong.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:39:38.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LienHe.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Home\\LienHe.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\LienHe.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Home\\LienHe.cshtml",
+              "RelativeToolTip": "Views\\Home\\LienHe.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:39:33.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ThanhToanThanhCong.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\GioHang\\ThanhToanThanhCong.cshtml",
+              "RelativeDocumentMoniker": "Views\\GioHang\\ThanhToanThanhCong.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\GioHang\\ThanhToanThanhCong.cshtml",
+              "RelativeToolTip": "Views\\GioHang\\ThanhToanThanhCong.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:39:31.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DangKy.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DangKy.cshtml",
+              "RelativeDocumentMoniker": "Views\\NguoiDungs\\DangKy.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DangKy.cshtml",
+              "RelativeToolTip": "Views\\NguoiDungs\\DangKy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:34:39.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:37:44.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DoanhThu.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\DoanhThu.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\DoanhThu.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Admin\\DoanhThu.cshtml",
+              "RelativeToolTip": "Views\\Admin\\DoanhThu.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:37:42.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\DonHangAdmin\\Details.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\DonHangAdmin\\Details.cshtml",
+              "RelativeToolTip": "Views\\DonHangAdmin\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:24:23.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:30:39.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "DangNhap.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DangNhap.cshtml",
+              "RelativeDocumentMoniker": "Views\\NguoiDungs\\DangNhap.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DangNhap.cshtml",
+              "RelativeToolTip": "Views\\NguoiDungs\\DangNhap.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T05:59:24.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "DatLaiMatKhau.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DatLaiMatKhau.cshtml",
+              "RelativeDocumentMoniker": "Views\\NguoiDungs\\DatLaiMatKhau.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DatLaiMatKhau.cshtml",
+              "RelativeToolTip": "Views\\NguoiDungs\\DatLaiMatKhau.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:01.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "QuenMatKhau.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\QuenMatKhau.cshtml",
+              "RelativeDocumentMoniker": "Views\\NguoiDungs\\QuenMatKhau.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\QuenMatKhau.cshtml",
+              "RelativeToolTip": "Views\\NguoiDungs\\QuenMatKhau.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T05:42:37.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "XacThucOTP.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\XacThucOTP.cshtml",
+              "RelativeDocumentMoniker": "Views\\NguoiDungs\\XacThucOTP.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\XacThucOTP.cshtml",
+              "RelativeToolTip": "Views\\NguoiDungs\\XacThucOTP.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:05.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "XacThucOTPReset.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\XacThucOTPReset.cshtml",
+              "RelativeDocumentMoniker": "Views\\NguoiDungs\\XacThucOTPReset.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\XacThucOTPReset.cshtml",
+              "RelativeToolTip": "Views\\NguoiDungs\\XacThucOTPReset.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:06.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:30:32.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DoiMatKhau.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DoiMatKhau.cshtml",
+              "RelativeDocumentMoniker": "Views\\NguoiDungs\\DoiMatKhau.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\NguoiDungs\\DoiMatKhau.cshtml",
+              "RelativeToolTip": "Views\\NguoiDungs\\DoiMatKhau.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:35:02.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "_LayoutUser.cshtml",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Shared\\_LayoutUser.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutUser.cshtml",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Shared\\_LayoutUser.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutUser.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T06:30:41.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ThanhToanThanhCong.css",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Content\\ThanhToanThanhCong.css",
+              "RelativeDocumentMoniker": "Content\\ThanhToanThanhCong.css",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Content\\ThanhToanThanhCong.css",
+              "RelativeToolTip": "Content\\ThanhToanThanhCong.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-05-26T06:29:52.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "bootstrap-grid.rtl.min.css.map",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Content\\bootstrap-grid.rtl.min.css.map",
+              "RelativeDocumentMoniker": "Content\\bootstrap-grid.rtl.min.css.map",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Content\\bootstrap-grid.rtl.min.css.map",
+              "RelativeToolTip": "Content\\bootstrap-grid.rtl.min.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-05-26T06:29:48.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "PayOSService.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Services\\PayOSService.cs",
+              "RelativeDocumentMoniker": "Services\\PayOSService.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Services\\PayOSService.cs",
+              "RelativeToolTip": "Services\\PayOSService.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAgwEAAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T06:19:47.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ThongkeAdminController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\ThongkeAdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ThongkeAdminController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\ThongkeAdminController.cs",
+              "RelativeToolTip": "Controllers\\ThongkeAdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:53:57.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "ThanhToanController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\ThanhToanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ThanhToanController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\ThanhToanController.cs",
+              "RelativeToolTip": "Controllers\\ThanhToanController.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAmwAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:52:45.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "GioHangController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\GioHangController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GioHangController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\GioHangController.cs",
+              "RelativeToolTip": "Controllers\\GioHangController.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAhwPsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:47:24.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Web.Release.config",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Web.Release.config",
+              "RelativeDocumentMoniker": "Web.Release.config",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Web.Release.config",
+              "RelativeToolTip": "Web.Release.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-26T06:02:09.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Web.Debug.config",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Web.Debug.config",
+              "RelativeDocumentMoniker": "Web.Debug.config",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Web.Debug.config",
+              "RelativeToolTip": "Web.Debug.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-26T06:02:05.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-26T06:01:37.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T06:00:55.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "CallbackModel.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Models\\CallbackModel.cs",
+              "RelativeDocumentMoniker": "Models\\CallbackModel.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Models\\CallbackModel.cs",
+              "RelativeToolTip": "Models\\CallbackModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:55:28.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "TaiKhoanController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\TaiKhoanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TaiKhoanController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\TaiKhoanController.cs",
+              "RelativeToolTip": "Controllers\\TaiKhoanController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:51:57.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:48:11.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "NguoiDungsController.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\NguoiDungsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NguoiDungsController.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Controllers\\NguoiDungsController.cs",
+              "RelativeToolTip": "Controllers\\NguoiDungsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:41:37.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Global.asax.cs",
+              "RelativeDocumentMoniker": "Global.asax.cs",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Global.asax.cs",
+              "RelativeToolTip": "Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T05:40:23.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Web.config",
+              "RelativeDocumentMoniker": "Views\\Web.config",
+              "ToolTip": "D:\\Cong_nghe_phan_mem\\App12COFFEE\\Views\\Web.config",
+              "RelativeToolTip": "Views\\Web.config",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-26T05:39:30.987Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

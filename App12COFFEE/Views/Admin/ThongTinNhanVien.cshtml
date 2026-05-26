@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Thông tin nhân viên";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    h2 {
+        color: #C9A86A;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .header-actions {
+        float: right;
+        margin-top: -5px;
+    }
+
+    .table th {
+        background: #333;
+        color: #fff;
+    }
+
+    .table td {
+        background: #222;
+        color: #fff;
+    }
+
+    .btn {
+        padding: 8px 14px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-right: 5px;
+        font-weight: bold;
+    }
+
+    .btn-success {
+        background: #C9A86A;
+        color: #000;
+    }
+
+        .btn-success:hover {
+            background: #b8974d;
+        }
+
+    .btn-danger {
+        background: #dc3545;
+        color: #fff;
+    }
+
+        .btn-danger:hover {
+            background: #b52a37;
+        }
+</style>
+
+<div>
+    <h2>Thông tin nhân viên</h2>
+    <div class="header-actions">
+        <a href="@Url.Action("ThemNhanVien", "Admin_65130628")" class="btn btn-success">
+            <i class="fa fa-plus"></i> Thêm nhân viên
+        </a>
+    </div>
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Mã NV</th>
+            <th>Tên nhân viên</th>
+            <th>Email</th>
+            <th>Vai trò</th>
+            <th>Ngày tạo</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nv in Model)
+        {
+            <tr>
+                <td>@nv.MaND</td>
+                <td>@nv.HoTen</td>
+                <td>@nv.Email</td>
+                <td>
+                    @(nv.VaiTro == "NhanVienGiaoHang" ? "Nhân viên giao hàng" :
+                      nv.VaiTro == "NhanVienDuyetDon" ? "Nhân viên duyệt đơn" : nv.VaiTro)
+                </td>
+                <td>@nv.NgayTao.ToString("dd/MM/yyyy")</td>
+                <td>@(nv.TrangThai ? "Hoạt động" : "Ngừng")</td>
+                <td>
+                    <a href="@Url.Action("XoaNhanVien", "Admin_65130628", new { id = nv.MaND })"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Bạn có chắc muốn xóa nhân viên này?');">
+                        Xóa
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

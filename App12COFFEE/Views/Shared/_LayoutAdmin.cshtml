@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+    var userName = Session["UserName"] as string ?? "Quản trị viên";
+    var role = Session["UserRole"] as string ?? "";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - 12 COFFEE ADMIN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/LayoutAdmin.css" rel="stylesheet" />
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="~/Content/logo12.jpg" alt="Logo 12 COFFEE" />
+            <div class="sidebar-logo-text">
+                <h2>12 COFFEE</h2>
+                <span>ADMIN PANEL</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+            <!-- Đơn hàng -->
+            <a href="@Url.Action("Index", "DonHangAdmin_65130628")" class="sidebar-item">
+                <i class="fa-solid fa-receipt"></i> <span>Đơn hàng chờ xác nhận</span>
+            </a>
+            <a href="@Url.Action("DonDaDuyet", "DonHangAdmin_65130628")" class="sidebar-item">
+                <i class="fa-solid fa-check"></i> <span>Đơn hàng đã duyệt</span>
+            </a>
+
+            @if (role == "Admin")
+            {
+                <a href="@Url.Action("Index", "SanPhamAdmin_65130628")" class="sidebar-item">
+                    <i class="fa-solid fa-mug-saucer"></i> <span>Quản lý sản phẩm</span>
+                </a>
+                <a href="@Url.Action("DoanhThuThang", "ThongkeAdmin_65130628")" class="sidebar-item">
+                    <i class="fa-solid fa-chart-line"></i> <span>Thống kê doanh thu</span>
+                </a>
+                <a href="@Url.Action("ThongTinNhanVien", "Admin_65130628")" class="sidebar-item">
+                    <i class="fa-solid fa-user-plus"></i> <span>Thông tin nhân viên</span>
+                </a>
+                <a href="@Url.Action("QuanLyNguoiDung", "Admin_65130628")" class="sidebar-item">
+                    <i class="fa-solid fa-users"></i> <span>Quản lý khách hàng</span>
+                </a>
+            }
+            <a href="@Url.Action("TrangChu", "Home_65130628")" class="sidebar-item">
+                <i class="fa-solid fa-globe"></i> <span>Xem website</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-user">
+            <i class="fa-regular fa-circle-user"></i>
+            <div>
+                <div class="user-name">@userName</div>
+                <div class="user-role">@role</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="header">
+            <div>
+                <h1>@ViewBag.Title</h1>
+                <p class="breadcrumb"><i class="fa-solid fa-house"></i> 12 COFFEE <i class="fa-solid fa-angle-right"></i> @ViewBag.Title</p>
+            </div>
+            <div class="header-right">
+                <div class="header-user">
+                    <i class="fa-regular fa-user"></i> <span>@userName</span>
+                </div>
+                <a href="@Url.Action("DangXuat", "NguoiDungs_65130628")" class="btn-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
+                </a>
+            </div>
+        </header>
+
+        <section class="content">
+            @RenderBody()
+        </section>
+        <footer class="footer">
+            <span>© @DateTime.Now.Year - 12 COFFEE Admin Panel</span>
+        </footer>
+    </main>
+</body>
+</html>

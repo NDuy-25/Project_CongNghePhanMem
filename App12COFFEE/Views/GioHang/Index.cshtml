@@ -1,0 +1,273 @@
+﻿@model IEnumerable<App12COFFEE.Models.ChiTietGioHang>
+@using System.Collections.Generic
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+
+    var ds = Model ?? Enumerable.Empty<App12COFFEE.Models.ChiTietGioHang>();
+    int tongSL = ds.Sum(x => x.SoLuong.GetValueOrDefault());
+    decimal tongTien = ViewBag.TongTien != null ? (decimal)ViewBag.TongTien : 0m;
+
+    // Lấy notes từ ViewBag thay vì Session
+    var notes = ViewBag.CartNotes as Dictionary<int, string> ?? new Dictionary<int, string>();
+}
+
+<link rel="stylesheet" href="~/Content/Cart.css" />
+
+<div class="cart-wrapper">
+
+    <!-- HEADER -->
+    <div class="cart-header fade-in-up">
+        <p class="cart-breadcrumb">Trang chủ / <span>Giỏ hàng</span></p>
+        <h1>Giỏ hàng & Thanh toán</h1>
+
+        <p class="cart-subtitle">
+            @if (tongSL > 0)
+            {
+                @:Bạn đang có <strong>@tongSL</strong> món trong giỏ hàng.
+            }
+            else
+            {
+                @:Hiện tại giỏ hàng của bạn đang trống.
+            }
+        </p>
+    </div>
+
+    <!-- NẾU GIỎ TRỐNG -->
+    @if (!ds.Any())
+    {
+        <div class="cart-empty fade-in-up">
+            <p>Không có sản phẩm nào.</p>
+            <a href="@Url.Action("Menu","Home_65130628")" class="btn-continue">Tiếp tục mua hàng</a>
+        </div>
+    }
+    else
+    {
+        <div class="cart-layout fade-in-up">
+
+            <!-- CỘT TRÁI: DANH SÁCH SẢN PHẨM -->
+            <div class="cart-items">
+
+                @using (Html.BeginForm("CapNhatGioHang", "GioHang_65130628", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    foreach (var item in ds)
+                    {
+                        var sp = item.SanPham;
+                        var ha = sp?.HinhAnhSanPhams?.FirstOrDefault();
+                        var img = ha != null ? ha.DuongDan : "no-image.jpg";
+                        var gia = sp?.Gia ?? 0;
+                        var thanhTien = (item.SoLuong ?? 0) * gia;
+
+                        string noteValue = (notes != null && notes.ContainsKey(item.MaSP)) ? notes[item.MaSP] : "";
+
+                        <div class="cart-item-card">
+                            <!-- ẢNH + TÊN -->
+                            <div class="cart-item-left">
+                                <div class="cart-item-img">
+                                    <img src="~/Content/Images/@img" alt="@(sp?.TenSP ?? "Sản phẩm")" />
+                                </div>
+
+                                <div class="cart-item-info">
+                                    <h3>@(sp?.TenSP ?? "Sản phẩm")</h3>
+                                    <p class="cart-item-category">
+                                        @(sp?.DanhMuc != null ? sp.DanhMuc.TenDM : "")
+                                    </p>
+
+                                    <p class="cart-item-price" data-price="@gia">
+                                        Đơn giá: @String.Format("{0:0,0}đ", gia)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- SỐ LƯỢNG + NOTE + XÓA -->
+                            <div class="cart-item-right">
+
+                                <div class="cart-item-controls">
+
+                                    <div class="cart-qty-group">
+                                        <label>Số lượng</label>
+                                        <div class="qty-control">
+                                            <input type="number"
+                                                   name="SoLuong_@item.MaSP"
+                                                   min="0"
+                                                   value="@(item.SoLuong ?? 0)"
+                                                   class="qty-input" />
+                                            <span class="qty-hint">0 để xóa</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-note-group">
+                                        <label>Ghi chú</label>
+                                        <input type="text"
+                                               name="GhiChu_@item.MaSP"
+                                               value="@noteValue"
+                                               class="cart-item-note-input"
+                                               placeholder="Ít đá, giảm ngọt..." />
+                                    </div>
+
+                                </div>
+
+                                <div class="cart-item-total">
+                                    <div class="cart-item-total-text">
+                                        <span>Thành tiền</span>
+                                        <div class="cart-item-total-value">
+                                            @String.Format("{0:0,0}đ", thanhTien)
+                                        </div>
+                                    </div>
+
+                                    <a href="@Url.Action("Xoa","GioHang_65130628", new { maSP = item.MaSP })"
+                                       class="cart-item-remove">Xóa món</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+
+                    <div class="cart-update-row">
+                        <button type="submit" class="btn-update-cart">Cập nhật giỏ hàng</button>
+                    </div>
+                }
+            </div>
+
+            <!-- CỘT PHẢI: TÓM TẮT + THANH TOÁN -->
+            <div class="cart-summary">
+                <div class="cart-summary-box">
+
+                    <h2>Tóm tắt đơn hàng</h2>
+
+                    <div class="summary-row">
+                        <span>Tổng SL</span> <span>@tongSL</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Tạm tính</span> <span>@String.Format("{0:0,0}đ", tongTien)</span>
+                    </div>
+
+                    <div class="summary-row summary-total">
+                        <span>Tổng thanh toán</span> <span>@String.Format("{0:0,0}đ", tongTien)</span>
+                    </div>
+
+                    <!-- FORM THANH TOÁN -->
+                    @using (Html.BeginForm("ThanhToan", "GioHang_65130628", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <!-- ✅ Hidden qty để submit theo form ThanhToan -->
+                        foreach (var item in ds)
+                        {
+                            <input type="hidden"
+                                   name="SoLuong_@item.MaSP"
+                                   value="@(item.SoLuong ?? 0)"
+                                   class="hd-qty"
+                                   data-masp="@item.MaSP" />
+                        }
+
+                        <h3 class="checkout-title">Thông tin thanh toán</h3>
+
+                        <div class="checkout-group">
+                            <label>Họ tên người nhận</label>
+                            <input type="text" name="HoTen" value="@ViewBag.HoTen" required />
+                        </div>
+
+                        <div class="checkout-group">
+                            <label>Số điện thoại</label>
+                            <input type="text" name="DienThoai" value="@ViewBag.DienThoai" required />
+                        </div>
+
+                        <div class="checkout-group">
+                            <label>Địa chỉ giao hàng</label>
+                            <textarea name="DiaChi" rows="2" required>@ViewBag.DiaChi</textarea>
+                        </div>
+
+                        <div class="checkout-group">
+                            <label>Ghi chú</label>
+                            <textarea name="GhiChu" rows="2"></textarea>
+                        </div>
+
+                        <div class="checkout-group">
+                            <label>Phương thức thanh toán</label>
+                            <div class="pay-methods">
+
+                                <label class="pay-option">
+                                    <input type="radio" name="PhuongThuc" value="TienMat" checked />
+                                    <span>Tiền mặt khi nhận</span>
+                                </label>
+
+                                <label class="pay-option">
+                                    <input type="radio" name="PhuongThuc" value="VietQR" />
+                                    <span>Chuyển khoản VietQR</span>
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="summary-actions">
+                            <button type="submit" class="btn-checkout">Xác nhận thanh toán</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        function syncHiddenQty() {
+            document.querySelectorAll(".qty-input").forEach(function (input) {
+                const name = input.getAttribute("name"); // SoLuong_XX
+                const hd = document.querySelector('input.hd-qty[name="' + name + '"]');
+                if (hd) hd.value = input.value;
+            });
+        }
+
+        function updateSummary() {
+            let tongSL = 0;
+            let tongTien = 0;
+
+            document.querySelectorAll(".cart-item-card").forEach(function (card) {
+                let qtyInput = card.querySelector(".qty-input");
+                let qty = parseInt(qtyInput.value) || 0;
+
+                // Lấy giá từ data attribute thay vì parse text
+                let price = parseFloat(card.querySelector(".cart-item-price").getAttribute("data-price")) || 0;
+
+                let thanhTien = qty * price;
+
+                // cập nhật thành tiền bên trái
+                card.querySelector(".cart-item-total-value").textContent =
+                    thanhTien.toLocaleString() + "đ";
+
+                tongSL += qty;
+                tongTien += thanhTien;
+            });
+
+            // cập nhật tổng bên phải (đúng theo layout hiện tại của bạn)
+            document.querySelector(".summary-row span:last-child").textContent = tongSL;
+
+            // tạm tính (row thứ 2)
+            document.querySelectorAll(".summary-row span:last-child")[1].textContent =
+                tongTien.toLocaleString() + "đ";
+
+            // tổng thanh toán (row total)
+            document.querySelectorAll(".summary-row.summary-total span:last-child")[0].textContent =
+                tongTien.toLocaleString() + "đ";
+
+            // ✅ sync hidden qty để submit thanh toán đúng số lượng
+            syncHiddenQty();
+        }
+
+        document.querySelectorAll(".qty-input").forEach(function (input) {
+            input.addEventListener("input", updateSummary);
+            input.addEventListener("change", updateSummary);
+        });
+
+        // sync lần đầu
+        syncHiddenQty();
+    });
+</script>

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Quên mật khẩu";
+}
+<link rel="stylesheet" href="~/Content/login.css" />
+
+<div class="form-wrapper">
+    <div class="form-box">
+        <h3>Quên mật khẩu</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success">@TempData["Message"]</div>
+        }
+
+        @using (Html.BeginForm("QuenMatKhau", "NguoiDungs_65130628", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <label>Email đã đăng ký</label>
+            <input type="email"
+                   name="Email"
+                   class="form-control"
+                   placeholder="Nhập email đã đăng ký"
+                   required
+                   autocomplete="email" />
+
+            <button type="submit" class="btn-reset">
+                Gửi mã OTP
+            </button>
+        }
+    </div>
+</div>

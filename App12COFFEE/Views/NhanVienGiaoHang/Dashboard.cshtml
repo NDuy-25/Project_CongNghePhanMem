@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Trang nhân viên giao hàng";
+    Layout = "~/Views/Shared/_LayoutNhanVienGiaoHang.cshtml";
+}
+
+<h2><i class="fa fa-truck"></i> Danh sách đơn hàng cần giao</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<div class="row">
+    @foreach (var dh in Model)
+    {
+        <div class="col-md-6">
+            <div class="card">
+                <h4><i class="fa fa-shopping-bag"></i> Đơn hàng #@dh.MaDH</h4>
+                <p><strong>Khách hàng:</strong> @(dh.NguoiDung?.HoTen ?? dh.MaND.ToString())</p>
+                <p><strong>SĐT liên hệ:</strong> @(dh.NguoiDung?.DienThoai ?? "Không có")</p>
+                <p><strong>Ngày đặt:</strong> @dh.NgayDat.ToString("dd/MM/yyyy HH:mm")</p>
+                <p><strong>Tổng tiền:</strong> @String.Format("{0:N0}", dh.TongTien) VNĐ</p>
+                <p><strong>Trạng thái:</strong> @dh.TrangThaiDon</p>
+
+                <div>
+                    @if (dh.TrangThaiDon == "Đã xác nhận")
+                    {
+                        <a href="@Url.Action("XacNhanGiao", "NhanVienGiaoHang_65130628", new { maDH = dh.MaDH })"
+                           class="btn btn-warning btn-custom"
+                           onclick="return confirm('Bạn có chắc muốn nhận đơn này để giao?');">
+                            <i class="fa fa-handshake"></i> Nhận đơn
+                        </a>
+                    }
+                    else if (dh.TrangThaiDon == "Đang giao hàng")
+                    {
+                        <a href="@Url.Action("GiaoHangThanhCong", "NhanVienGiaoHang_65130628", new { maDH = dh.MaDH })"
+                           class="btn btn-success btn-custom"
+                           onclick="return confirm('Xác nhận giao hàng thành công?');">
+                            <i class="fa fa-check"></i> Giao hàng thành công
+                        </a>
+                    }
+                    else if (dh.TrangThaiDon == "Giao hàng thành công")
+                    {
+                        <span class="badge bg-success"><i class="fa fa-check-circle"></i> Đã giao tận tay khách hàng</span>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>

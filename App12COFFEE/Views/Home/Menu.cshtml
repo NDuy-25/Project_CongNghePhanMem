@@ -1,0 +1,100 @@
+﻿@model IEnumerable<QL12COFFEE_65130628.Models.SanPham>
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+
+    var danhMucs = ViewBag.DanhMuc as IEnumerable<QL12COFFEE_65130628.Models.DanhMuc>;
+}
+
+<link rel="stylesheet" href="~/Content/Menu.css" />
+
+<div class="menu-wrapper">
+    <!-- HERO -->
+    <section class="menu-hero fade-in-up">
+        <div class="menu-hero-text">
+            <p class="menu-breadcrumb">Trang chủ / <span>Menu</span></p>
+            <h1>Menu 12 COFFEE</h1>
+            <p class="menu-subtitle">
+                Thưởng thức hơn 80+ loại thức uống được pha chế tỉ mỉ – từ cà phê nguyên chất,
+                trà trái cây, đá xay đến yogurt, cold brew...
+            </p>
+        </div>
+    </section>
+
+    <!-- DANH MỤC -->
+    <section class="menu-category-bar fade-in-up">
+        <div class="menu-category-list">
+            <a href="@Url.Action("Menu", "Home_65130628")"
+               class="menu-category-item @(Request["maDM"] == null ? "active" : "")">
+                Tất cả
+            </a>
+
+            @foreach (var dm in danhMucs)
+            {
+                <a href="@Url.Action("Menu", "Home_65130628", new { maDM = dm.MaDM })"
+                   class="menu-category-item @(Request["maDM"] == dm.MaDM.ToString() ? "active" : "")">
+                    @dm.TenDM
+                </a>
+            }
+        </div>
+    </section>
+
+    <!-- GRID SẢN PHẨM -->
+    <div class="menu-grid">
+        @foreach (var sp in Model)
+        {
+            var ha = sp.HinhAnhSanPhams.FirstOrDefault();
+            var img = ha != null ? ha.DuongDan : "no-image.jpg";
+            <div class="menu-card">
+                <div class="menu-card-image">
+                    <img src="@Url.Content("~/Content/Images/" + img)" alt="@sp.TenSP" />
+                </div>
+                <div class="menu-card-body">
+                    <span class="menu-card-badge">
+                        @(danhMucs.FirstOrDefault(dm => dm.MaDM == sp.MaDM)?.TenDM ?? "")
+                    </span>
+                    <h3 class="menu-card-title">@sp.TenSP</h3>
+                    <p class="menu-card-desc">
+                        @(string.IsNullOrEmpty(sp.MoTa) ? "Thức uống được yêu thích tại 12 COFFEE." : sp.MoTa)
+                    </p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-price">@String.Format("{0:0,0}đ", sp.Gia)</span>
+                        <a href="@Url.Action("Them", "GioHang_65130628", new { maSP = sp.MaSP })" class="btn-order">Đặt hàng</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <!-- Thanh phân trang -->
+    <div class="menu-pagination">
+        <div class="pagination-inner">
+            @{
+                int totalPages = (int)Math.Ceiling((double)ViewBag.TotalItems / ViewBag.PageSize);
+                int currentPage = ViewBag.Page;
+
+                // Nút Trang trước
+                if (currentPage > 1)
+                {
+                    <a href="@Url.Action("Menu", new { maDM = Request["maDM"], page = currentPage - 1 })"
+                       class="page-link prev">«</a>
+                }
+
+                // Các số trang
+                for (int i = 1; i <= totalPages; i++)
+                {
+                    <a href="@Url.Action("Menu", new { maDM = Request["maDM"], page = i })"
+                       class="page-link @(i == currentPage ? "active" : "")">@i</a>
+                }
+
+                // Nút Trang sau
+                if (currentPage < totalPages)
+                {
+                    <a href="@Url.Action("Menu", new { maDM = Request["maDM"], page = currentPage + 1 })"
+                       class="page-link next">»</a>
+                }
+            }
+        </div>
+    </div>
+
+</div>

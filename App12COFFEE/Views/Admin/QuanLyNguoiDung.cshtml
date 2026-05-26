@@ -1,0 +1,48 @@
+﻿@model IEnumerable<App12COFFEE.Models.NguoiDung>
+@{
+    ViewBag.Title = "Quản lý người dùng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="color:#C9A86A;">Quản lý người dùng (Khách hàng)</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Mã ND</th>
+            <th>Tên đăng nhập</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Điện thoại</th>
+            <th>Ngày tạo</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nd in Model)
+        {
+            <tr>
+                <td>@nd.MaND</td>
+                <td>@nd.TenDangNhap</td>
+                <td>@nd.HoTen</td>
+                <td>@nd.Email</td>
+                <td>@nd.DienThoai</td>
+                <td>@nd.NgayTao.ToString("dd/MM/yyyy")</td>
+                <td>@(nd.TrangThai ? "Hoạt động" : "Ngừng")</td>
+                <td>
+                    <a href="@Url.Action("ChiTietNguoiDung", "Admin_65130628", new { id = nd.MaND })"
+                       class="btn btn-info btn-sm">Chi tiết</a>
+                    <a href="@Url.Action("XoaNguoiDung", "Admin_65130628", new { id = nd.MaND })"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Bạn có chắc muốn xóa người dùng này?');">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Nhân viên giao hàng</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            background: #f4f4f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 15px;
+        }
+
+            nav a {
+                color: #ecf0f1;
+                font-weight: 600;
+                margin-right: 20px;
+            }
+
+                nav a:hover {
+                    color: #C9A86A;
+                    text-decoration: none;
+                }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            border-radius: 8px;
+            font-weight: 600;
+            padding: 8px 14px;
+        }
+
+        .btn-warning {
+            background: #f39c12;
+            color: #fff;
+        }
+
+            .btn-warning:hover {
+                background: #d68910;
+            }
+
+        .btn-success {
+            background: #27ae60;
+            color: #fff;
+        }
+
+            .btn-success:hover {
+                background: #1e8449;
+            }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="@Url.Action("Dashboard","NhanVienGiaoHang_65130628")"><i class="fa fa-truck"></i> Đơn hàng cần giao</a>
+        <a href="@Url.Action("DangXuat","NguoiDungs_65130628")"><i class="fa fa-sign-out-alt"></i> Đăng xuất</a>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

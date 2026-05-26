@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<App12COFFEE.Models.SanPham>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="toolbar">
+    <h2 style="color:#C9A86A;">Danh sách sản phẩm</h2>
+    <a href="@Url.Action("ThemSanPham", "SanPhamAdmin")" class="btn btn-success">
+        <i class="fa fa-plus"></i> Thêm sản phẩm
+    </a>
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá (VND)</th>
+            <th>Số lượng tồn</th>
+            <th>Trạng thái</th>
+            <th style="width:180px;">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sp in Model)
+        {
+            <tr>
+                <td>@sp.MaSP</td>
+                <td>@sp.TenSP</td>
+                <td>@String.Format("{0:N0}", sp.Gia)</td>
+                <td>@sp.SoLuongTon</td>
+                <td>@(sp.TrangThai.HasValue && sp.TrangThai.Value ? "Đang bán" : "Ngừng bán")</td>
+                <td>
+                    <a href="@Url.Action("SuaSanPham", "SanPhamAdmin", new { id = sp.MaSP })" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i> Sửa
+                    </a>
+                    <a href="@Url.Action("XoaSanPham", "SanPhamAdmin", new { id = sp.MaSP })" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">
+                        <i class="fa fa-trash"></i> Xóa
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination-container">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+    {
+        DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+        DisplayLinkToLastPage = PagedListDisplayMode.Always,
+        DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+        DisplayLinkToNextPage = PagedListDisplayMode.Always,
+        MaximumPageNumbersToDisplay = 5,
+        UlElementClasses = new[] { "pagination" }
+    })
+</div>

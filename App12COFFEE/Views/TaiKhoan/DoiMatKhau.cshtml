@@ -1,0 +1,155 @@
+﻿@model QL12COFFEE_65130628.Models.NguoiDung
+@{
+    ViewBag.Title = "Thông tin tài khoản";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/ThongTinNguoiDung.css" />
+
+<div class="profile-wrapper">
+    <div class="profile-card">
+
+        <div class="profile-header">
+            <div class="avatar">
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="header-text">
+                <h2>Thông tin người dùng</h2>
+                <p>Quản lý thông tin tài khoản của bạn</p>
+            </div>
+        </div>
+
+        @if (TempData["Message"] != null)
+        {
+            <div class="profile-alert">@TempData["Message"]</div>
+        }
+
+        <!-- ================== FORM THÔNG TIN ================== -->
+        @using (Html.BeginForm("CapNhat", "TaiKhoan_65130628", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="section-title">Thông tin cá nhân</div>
+
+            <div class="profile-grid">
+
+                <div class="form-group full">
+                    <label>Tên đăng nhập</label>
+                    <input class="input input-readonly" value="@Model.TenDangNhap" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label>Họ tên</label>
+                    <input class="input" id="HoTen" name="HoTen" value="@Model.HoTen" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input class="input" id="DienThoai" name="DienThoai" value="@Model.DienThoai" />
+                </div>
+
+                <div class="form-group full">
+                    <label>Email</label>
+                    <input class="input" id="Email" name="Email" type="email" value="@Model.Email" />
+                </div>
+
+                <div class="form-group full">
+                    <label>Địa chỉ giao hàng</label>
+                    <input class="input" id="DiaChiGiaoHang" name="DiaChiGiaoHang" value="@Model.DiaChiGiaoHang" />
+                </div>
+
+                <div class="form-group">
+                    <label>Tỉnh</label>
+                    <input class="input" id="Tinh" name="Tinh" value="@Model.Tinh" />
+                </div>
+
+                <div class="form-group">
+                    <label>Huyện</label>
+                    <input class="input" id="Huyen" name="Huyen" value="@Model.Huyen" />
+                </div>
+
+                <div class="form-group full">
+                    <label>Xã</label>
+                    <input class="input" id="Xa" name="Xa" value="@Model.Xa" />
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button type="button" class="btn btn-outline" id="btnEdit">Chỉnh sửa</button>
+                <button type="submit" class="btn btn-primary" id="btnSave" style="display:none;">Lưu</button>
+                <a href="@Url.Action("ThongTin","TaiKhoan_65130628")" class="btn btn-ghost" id="btnCancel" style="display:none;">Hủy</a>
+            </div>
+        }
+
+        <!-- ================== FORM ĐỔI MẬT KHẨU ================== -->
+        <div class="divider"></div>
+
+        <div class="section-title">Đổi mật khẩu</div>
+
+        @if (TempData["PassError"] != null)
+        {
+            <div class="profile-alert danger">@TempData["PassError"]</div>
+        }
+        @if (TempData["PassMessage"] != null)
+        {
+            <div class="profile-alert success">@TempData["PassMessage"]</div>
+        }
+
+        @using (Html.BeginForm("DoiMatKhau", "TaiKhoan_65130628", FormMethod.Post, new { @class = "password-form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="profile-grid">
+                <div class="form-group full">
+                    <label>Mật khẩu hiện tại</label>
+                    <input class="input" name="MatKhauHienTai" type="password" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Mật khẩu mới</label>
+                    <input class="input" name="MatKhauMoi" type="password" minlength="6" required />
+                    <div class="hint">Tối thiểu 6 ký tự</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Xác nhận mật khẩu mới</label>
+                    <input class="input" name="XacNhanMatKhauMoi" type="password" minlength="6" required />
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+            </div>
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    const ids = ["HoTen","DienThoai","Email","DiaChiGiaoHang","Tinh","Huyen","Xa"];
+    const fields = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+    const btnEdit = document.getElementById("btnEdit");
+    const btnSave = document.getElementById("btnSave");
+    const btnCancel = document.getElementById("btnCancel");
+
+    function setReadonly(isReadonly) {
+        fields.forEach(f => {
+            f.readOnly = isReadonly;
+            f.classList.toggle("input-readonly", isReadonly);
+        });
+    }
+
+    // mặc định khóa
+    setReadonly(true);
+
+    btnEdit.addEventListener("click", () => {
+        setReadonly(false);
+        btnEdit.style.display = "none";
+        btnSave.style.display = "inline-block";
+        btnCancel.style.display = "inline-block";
+        fields[0]?.focus();
+    });
+    </script>
+}

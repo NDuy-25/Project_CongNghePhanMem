@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Đổi mật khẩu";
+}
+<link rel="stylesheet" href="~/Content/login.css" />
+
+<div class="form-wrapper">
+    <div class="form-box">
+        <h3>Đổi mật khẩu</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success">@ViewBag.Message</div>
+        }
+
+        @using (Html.BeginForm("DoiMatKhau", "NguoiDungs_65130628", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <label>Mật khẩu hiện tại</label>
+            <input type="password"
+                   name="oldPassword"
+                   class="form-control"
+                   placeholder="Nhập mật khẩu hiện tại"
+                   required />
+
+            <label>Mật khẩu mới</label>
+            <input type="password"
+                   name="newPassword"
+                   class="form-control"
+                   placeholder="Mật khẩu mới"
+                   required />
+
+            <small style="color:#aaa; display:block; margin-bottom:10px;">
+                Mật khẩu phải ≥ 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt
+            </small>
+
+            <label>Xác nhận mật khẩu mới</label>
+            <input type="password"
+                   name="confirmPassword"
+                   class="form-control"
+                   placeholder="Nhập lại mật khẩu mới"
+                   required />
+
+            <button type="submit" class="btn-change">
+                Đổi mật khẩu
+            </button>
+        }
+    </div>
+</div>

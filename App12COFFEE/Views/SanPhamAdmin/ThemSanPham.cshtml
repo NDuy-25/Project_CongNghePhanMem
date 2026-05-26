@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewBag.Title = "Thêm sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    h2 {
+        color: #C9A86A;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        color: #fff;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-control {
+        background: #222;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 5px;
+        padding: 8px;
+    }
+
+    .note {
+        color: #bdbdbd;
+        font-size: 13px;
+        margin-top: 6px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-right: 5px;
+    }
+
+    .btn-success {
+        background: #C9A86A;
+        color: #000;
+    }
+
+        .btn-success:hover {
+            background: #b8974d;
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        color: #fff;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+    .alert {
+        margin: 12px 0;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #444;
+        background: #1a1a1a;
+        color: #ffd9a3;
+    }
+</style>
+
+<h2>Thêm sản phẩm mới</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert">@TempData["Error"]</div>
+}
+
+@using (Html.BeginForm("ThemSanPham", "SanPhamAdmin_65130628", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.TenSP, "Tên sản phẩm")
+        @Html.TextBoxFor(m => m.TenSP, new { @class = "form-control", required = "required" })
+    </div>
+
+    <div class="form-group">
+        @model App12COFFEE.Models.SanPham
+        @{
+            ViewBag.Title = "Thêm sản phẩm";
+            Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+        }
+
+        <h2 style="color:#C9A86A;">Thêm sản phẩm mới</h2>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert">@TempData["Error"]</div>
+        }
+
+        @using (Html.BeginForm("ThemSanPham", "SanPhamAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.TenSP, "Tên sản phẩm")
+                @Html.TextBoxFor(m => m.TenSP, new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Danh mục")
+                @Html.DropDownList("MaDM", new SelectList(ViewBag.DanhMuc, "MaDM", "TenDM"), "-- Chọn danh mục --", new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gia, "Giá (VND)")
+                @Html.TextBoxFor(m => m.Gia, new { @class = "form-control", type = "number", min = "0", required = "required" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.SoLuongTon, "Số lượng tồn")
+                @Html.TextBoxFor(m => m.SoLuongTon, new { @class = "form-control", type = "number", min = "0", required = "required" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.MoTa, "Mô tả")
+                @Html.TextAreaFor(m => m.MoTa, new { @class = "form-control", rows = 3 })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Trạng thái")
+                @Html.DropDownListFor(m => m.TrangThai,
+                    new SelectList(new[]
+                    {
+                        new { Value = (bool?)true, Text = "Đang bán" },
+                        new { Value = (bool?)false, Text = "Ngừng bán" }
+                    }, "Value", "Text"),
+                    "-- Chọn trạng thái --",
+                    new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="form-group">
+                <label>Hình ảnh sản phẩm</label>
+                <input type="file" name="fileUpload" class="form-control" accept=".jpg,.jpeg,.png,.webp" />
+                <div class="note">Chọn một ảnh đại diện cho sản phẩm</div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Thêm sản phẩm</button>
+            <a href="@Url.Action("Index","SanPhamAdmin")" class="btn btn-secondary">Quay lại</a>
+        }
+
+        @Html.Label("Danh mục")
+        @Html.DropDownList("MaDM", new SelectList(ViewBag.DanhMuc, "MaDM", "TenDM"), "-- Chọn danh mục --", new { @class = "form-control", required = "required" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gia, "Giá (VND)")
+        @Html.TextBoxFor(m => m.Gia, new { @class = "form-control", type = "number", min = "0", required = "required" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SoLuongTon, "Số lượng tồn")
+        @Html.TextBoxFor(m => m.SoLuongTon, new { @class = "form-control", type = "number", min = "0", required = "required" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MoTa, "Mô tả")
+        @Html.TextAreaFor(m => m.MoTa, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Trạng thái")
+        @Html.DropDownListFor(m => m.TrangThai,
+            new SelectList(new[]
+            {
+                new { Value = true, Text = "Đang bán" },
+                new { Value = false, Text = "Ngừng bán" }
+            }, "Value", "Text"),
+            "-- Chọn trạng thái --",
+            new { @class = "form-control", required = "required" })
+    </div>
+
+    <!-- ✅ THÊM ẢNH -->
+    <div class="form-group">
+        <label>Hình ảnh sản phẩm</label>
+        <input type="file" name="fileUpload" class="form-control" accept=".jpg,.jpeg,.png,.webp" />
+        <div class="note">Chọn một ảnh đại diện cho sản phẩm</div>
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Thêm sản phẩm</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+}

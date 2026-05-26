@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Đặt lại mật khẩu";
+}
+<link rel="stylesheet" href="~/Content/login.css" />
+
+<div class="form-wrapper">
+    <div class="form-box">
+        <h3>Đặt lại mật khẩu mới</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        @using (Html.BeginForm("DatLaiMatKhau", "NguoiDungs_65130628", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="password" name="newPassword" class="form-control" placeholder="Nhập mật khẩu mới" required />
+            <button type="submit" class="btn-change">Đổi mật khẩu</button>
+        }
+    </div>
+</div>

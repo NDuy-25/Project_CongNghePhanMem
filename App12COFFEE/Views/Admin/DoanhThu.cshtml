@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Doanh thu theo tháng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Doanh thu theo tháng</h2>
+
+<canvas id="doanhThuChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Lấy dữ liệu doanh thu từ ViewBag (được truyền dưới dạng JSON)
+    var doanhThuData = @Html.Raw(ViewBag.DoanhThuTheoThang);
+
+    var months = doanhThuData.map(function(item) { return item.Thang + '/' + item.Nam; });
+    var doanhThu = doanhThuData.map(function(item) { return item.DoanhThu; });
+
+    var ctx = document.getElementById('doanhThuChart').getContext('2d');
+    var doanhThuChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: months,  // Mảng tháng/năm
+            datasets: [{
+                label: 'Doanh thu (VND)',
+                data: doanhThu,  // Dữ liệu doanh thu
+                borderColor: 'rgba(75, 192, 192, 1)',  // Màu đường biên
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',  // Màu nền
+                fill: true  // Điền màu dưới đường biểu đồ
+            }]
+        }
+    });
+</script>

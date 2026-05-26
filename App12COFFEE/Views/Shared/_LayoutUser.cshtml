@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>12 COFFEE</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/LayoutUser.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <a href="@Url.Action("TrangChu", "Home_65130628")" class="logo-link">
+                <img src="~/Content/logo12.jpg" alt="12 COFFEE" />
+            </a>
+
+            <div class="nav-menu">
+                <a href="@Url.Action("TrangChu", "Home")">Trang chủ</a>
+                <a href="@Url.Action("Menu", "Home")">Menu</a>
+                <a href="@Url.Action("GioiThieu", "Home")">12 COFFEE</a>
+                <a href="@Url.Action("LienHe", "Home")">Liên hệ</a>
+            </div>
+        </div>
+
+        <div class="header-right">
+            @if (Session["UserID"] == null)
+            {
+                <a href="@Url.Action("DangNhap", "NguoiDungs")" class="account-box">
+                    <i class="fa-regular fa-user"></i>
+                    <div class="account-text">
+                        Tài khoản
+                        <span>Đăng nhập</span>
+                    </div>
+                </a>
+            }
+            else
+            {
+                <!-- ✅ CHỈNH Ở ĐÂY: đổi div -> a để bấm được -->
+                <a href="@Url.Action("ThongTin", "TaiKhoan")" class="account-box logged-in" title="Xem thông tin tài khoản">
+                    <i class="fa-regular fa-user"></i>
+                    <div class="account-text">
+                        Xin chào,
+                        <span>@Session["UserName"]</span>
+                    </div>
+                </a>
+
+                <a href="@Url.Action("DangXuat", "NguoiDungs8")" class="btn-logout-header">
+                    Đăng xuất
+                </a>
+            }
+
+            <a href="@Url.Action("Index", "GioHang")" class="nav-cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>Giỏ hàng</span>
+
+                @{
+                    var cartCount = (int?)(Session["CartCount"]) ?? 0;
+                    if (cartCount > 0)
+                    {
+                        <span class="cart-badge">@cartCount</span>
+                    }
+                }
+            </a>
+        </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <img src="~/Content/logo12.jpg" alt="12 COFFEE" />
+
+        <div class="footer-section">
+            <div class="footer-section-title">▶ ĐỊA CHỈ</div>
+            <i class="fa-solid fa-location-dot"></i> Tô Hiến Thành, Vạn Ninh, Khánh Hòa
+        </div>
+
+        <div class="footer-section">
+            <div class="footer-section-title">▶ TIN TỨC</div>
+            Không có tin tức mới.
+        </div>
+
+        <div class="footer-section">
+            <div class="footer-section-title">▶ THEO DÕI CHÚNG TÔI</div>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollEls = document.querySelectorAll('.scroll-animate');
+
+            function checkScroll() {
+                const trigger = window.innerHeight * 0.85;
+                scrollEls.forEach(el => {
+                    if (el.getBoundingClientRect().top < trigger) {
+                        el.classList.add('show');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+
+            const isMenuPage = document.querySelector("#menuSlides");
+            if (!isMenuPage) return;
+
+            const slides = document.querySelectorAll(".menu-slide");
+            const categoryButtons = document.querySelectorAll(".menu-category-item");
+
+            categoryButtons.forEach(btn => {
+                btn.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    const target = this.dataset.target;
+
+                    categoryButtons.forEach(b => b.classList.remove("active"));
+                    this.classList.add("active");
+
+                    slides.forEach(sl => {
+                        if (sl.dataset.slide === target) {
+                            sl.classList.add("active", "slide-in-right");
+                            sl.classList.remove("slide-out-left");
+                        } else {
+                            sl.classList.remove("active", "slide-in-right");
+                            sl.classList.add("slide-out-left");
+                        }
+                    });
+
+                    showSkeleton(target);
+
+                    hideSkeleton(target, () => {
+                        location.href = `?maDM=${target === "all" ? "" : target}`;
+                    });
+                });
+            });
+
+            const batchSize = 12;
+
+            function setupLoadMore(slideId) {
+                const cards = document.querySelectorAll(`#grid-${slideId} .menu-card`);
+                const btn = document.querySelector(`button[data-target="${slideId}"]`);
+                if (!btn) return;
+
+                let visible = 12;
+
+                cards.forEach((c, i) => {
+                    if (i >= visible) c.classList.add("hidden");
+                });
+
+                btn.addEventListener("click", function () {
+                    for (let i = visible; i < visible + batchSize && i < cards.length; i++) {
+                        cards[i].classList.remove("hidden");
+                    }
+                    visible += batchSize;
+                    if (visible >= cards.length) btn.style.display = "none";
+                });
+            }
+
+            setupLoadMore("all");
+
+            function showSkeleton(slideId) {
+                const grid = document.querySelector(`#grid-${slideId}`);
+                if (!grid) return;
+
+                grid.innerHTML = "";
+
+                for (let i = 0; i < 8; i++) {
+                    grid.innerHTML += `
+                            <div class="skeleton-card">
+                                <div class="skeleton-img"></div>
+                                <div class="skeleton-line long"></div>
+                                <div class="skeleton-line medium"></div>
+                                <div class="skeleton-line short"></div>
+                            </div>
+                        `;
+                }
+            }
+
+            function hideSkeleton(slideId, callback) {
+                setTimeout(() => {
+                    callback();
+                }, 700);
+            }
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

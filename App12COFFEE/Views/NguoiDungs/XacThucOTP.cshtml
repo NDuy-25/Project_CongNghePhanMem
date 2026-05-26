@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Xác thực OTP";
+}
+<link rel="stylesheet" href="~/Content/login.css" />
+
+<div class="form-wrapper">
+    <div class="form-box">
+        <h3>Xác thực OTP đăng ký</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        @using (Html.BeginForm("XacThucOTP", "NguoiDungs_65130628", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="otp" class="form-control" placeholder="Nhập mã OTP từ email" required />
+            <button type="submit" class="btn-otp">Xác thực</button>
+        }
+    </div>
+</div>

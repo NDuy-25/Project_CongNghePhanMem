@@ -1,0 +1,186 @@
+﻿/* ===========================
+   VÙNG TỔNG
+=========================== */
+.coffee-contact-wrapper {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f0e0c6; /* chữ mặc định hợp nền đen */
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.coffee-header h2 {
+    font-size: 36px;
+    color: #d7b899; /* nâu vàng sáng */
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(215,184,153,0.5);
+    animation: glowText 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 4px rgba(215,184,153,0.3);
+    }
+
+    to {
+        text-shadow: 0 0 14px rgba(215,184,153,0.9);
+    }
+}
+
+.coffee-header p {
+    color: #c49a6c;
+    font-size: 18px;
+    margin-bottom: 35px;
+    opacity: 0;
+    animation: fadeSlide 1.2s ease forwards;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   GRID
+=========================== */
+.coffee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+.coffee-card {
+    background: #2b1f1a; /* nâu đậm hợp nền đen */
+    padding: 28px;
+    border-radius: 14px;
+    border: 1px solid #4e342e;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    transition: transform .35s ease, box-shadow .35s ease;
+    opacity: 0;
+    animation: slideUp .9s ease forwards;
+}
+
+    .coffee-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+/* ===========================
+   ICON
+=========================== */
+.coffee-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.coffee-card:hover .coffee-icon {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px rgba(215,184,153,0.8));
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+.coffee-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #8d6e63;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background .3s, transform .3s;
+}
+
+    .coffee-btn:hover {
+        background: #a1887f;
+        transform: scale(1.05);
+    }
+
+/* ===========================
+   HOTLINE
+=========================== */
+.coffee-hotline {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffcc80;
+    margin-top: 10px;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+.animate-fade {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+.animate-up {
+    animation: slideUp .8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .coffee-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Delay animation cho từng card */
+.delay-1 {
+    animation-delay: .2s;
+}
+
+.delay-2 {
+    animation-delay: .4s;
+}
+
+.delay-3 {
+    animation-delay: .6s;
+}
+
+.delay-4 {
+    animation-delay: .8s;
+}

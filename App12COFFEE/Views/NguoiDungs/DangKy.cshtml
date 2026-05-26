@@ -1,0 +1,65 @@
+﻿@model App12COFFEE.Models.NguoiDung
+
+@{
+    ViewBag.Title = "Đăng ký tài khoản";
+}
+<link rel="stylesheet" href="~/Content/login.css" />
+
+<div class="form-wrapper">
+    <div class="form-box">
+        <h3>Đăng ký tài khoản</h3>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                Vui lòng nhập đầy đủ thông tin theo yêu cầu bên dưới.
+            </div>
+        }
+
+        @using (Html.BeginForm("DangKy", "NguoiDungs_65130628", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <label style="color: black;">Tên đăng nhập</label>
+            @Html.TextBoxFor(m => m.TenDangNhap, new { @class = "form-control", placeholder = "Tên đăng nhập" })
+            @Html.ValidationMessageFor(m => m.TenDangNhap, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Mật khẩu</label>
+            @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control", placeholder = "Mật khẩu" })
+            @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Họ tên</label>
+            @Html.TextBoxFor(m => m.HoTen, new { @class = "form-control", placeholder = "Họ tên" })
+            @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Email</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Email" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Điện thoại</label>
+            @Html.TextBoxFor(m => m.DienThoai, new { @class = "form-control", placeholder = "Điện thoại" })
+            @Html.ValidationMessageFor(m => m.DienThoai, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Địa chỉ giao hàng</label>
+            @Html.TextBoxFor(m => m.DiaChiGiaoHang, new { @class = "form-control", placeholder = "Địa chỉ giao hàng" })
+            @Html.ValidationMessageFor(m => m.DiaChiGiaoHang, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Tỉnh / Thành phố</label>
+            @Html.HiddenFor(m => m.Tinh, new { Value = "Khánh Hòa" })
+            <input class="form-control" value="Khánh Hòa" readonly />
+            @Html.ValidationMessageFor(m => m.Tinh, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Quận / Huyện</label>
+            @Html.HiddenFor(m => m.Huyen, new { Value = "Vạn Ninh" })
+            <input class="form-control" value="Vạn Ninh" readonly />
+            @Html.ValidationMessageFor(m => m.Huyen, "", new { @class = "text-danger" })
+
+            <label style="color: black;">Phường / Xã</label>
+            @Html.TextBoxFor(m => m.Xa, new { @class = "form-control", placeholder = "Phường / Xã" })
+            @Html.ValidationMessageFor(m => m.Xa, "", new { @class = "text-danger" })
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn-register">Đăng ký</button>
+            </div>
+        }
+    </div>
+</div>

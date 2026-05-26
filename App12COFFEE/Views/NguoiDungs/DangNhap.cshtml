@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+}
+<link rel="stylesheet" href="~/Content/login.css" />
+
+<div class="form-wrapper">
+    <div class="form-box">
+        <h3>Đăng nhập hệ thống</h3>
+        @if (ViewBag.Error != null)
+        {<div class="alert alert-danger">@ViewBag.Error</div>}
+
+        @using (Html.BeginForm("DangNhap", "NguoiDungs", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="TenDangNhap" class="form-control" placeholder="Tên đăng nhập" required />
+            <input type="password" name="MatKhau" class="form-control" placeholder="Mật khẩu" required />
+            <button type="submit" class="btn-coffee">Đăng nhập</button>
+        }
+
+        <div class="link-row">
+            <a href="@Url.Action("DangKy","NguoiDungs")" class="link-btn">Đăng ký</a>
+            <a href="@Url.Action("QuenMatKhau","NguoiDungs")" class="link-btn">Quên mật khẩu?</a>
+        </div>
+    </div>
+</div>

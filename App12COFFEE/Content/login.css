@@ -1,0 +1,192 @@
+﻿body {
+    background: #fdf6ec;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Khung form */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 0 12px;
+}
+
+.form-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    padding: 32px;
+    width: 100%;
+    max-width: 420px;
+    animation: slideUp 0.6s ease-out;
+}
+
+    .form-box h3 {
+        font-weight: 700;
+        color: #6F4E37;
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: 22px;
+        text-transform: uppercase;
+        animation: fadeInText 1s ease-in;
+    }
+
+/* Input */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+    .form-control:focus {
+        border-color: #C9A86A;
+        box-shadow: 0 0 8px rgba(201,168,106,0.4);
+    }
+
+/* Nút chính */
+.btn-coffee {
+    background-color: #C9A86A;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    .btn-coffee:hover {
+        background-color: #8B5E3C;
+    }
+
+    .btn-coffee:active {
+        transform: scale(0.98);
+    }
+
+/* Nút phụ */
+.btn-register {
+    background-color: #27ae60;
+}
+
+.btn-otp {
+    background-color: #3498db;
+}
+
+.btn-reset {
+    background-color: #f39c12;
+}
+
+.btn-change {
+    background-color: #0d6efd;
+}
+
+.btn-register, .btn-otp, .btn-reset, .btn-change {
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    .btn-register:hover {
+        background-color: #1e8449;
+    }
+
+    .btn-otp:hover {
+        background-color: #21618c;
+    }
+
+    .btn-reset:hover {
+        background-color: #d68910;
+    }
+
+    .btn-change:hover {
+        background-color: #0b5ed7;
+    }
+
+/* Link hàng ngang */
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.link-btn {
+    font-size: 14px;
+    color: #6F4E37;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+    .link-btn:hover {
+        color: #C9A86A;
+        transform: translateX(2px);
+    }
+
+/* Alert */
+.alert {
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #842029;
+}
+
+.alert-success {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.alert-info {
+    background: #cff4fc;
+    color: #055160;
+}
+.form-control {
+    color: black;
+}
+
+    .form-control::placeholder {
+        color: #555;
+    }
+label {
+    color: black;
+    font-weight: 500;
+}
+
+/* Hiệu ứng */
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        letter-spacing: 2px;
+    }
+
+    to {
+        opacity: 1;
+        letter-spacing: 0.5px;
+    }
+}

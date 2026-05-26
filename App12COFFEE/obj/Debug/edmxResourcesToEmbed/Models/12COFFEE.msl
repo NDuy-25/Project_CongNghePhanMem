@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COFFEEModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AIChats">
+      <EntityTypeMapping TypeName="COFFEEModel.AIChat">
+        <MappingFragment StoreEntitySet="AIChat">
+          <ScalarProperty Name="MaChat" ColumnName="MaChat" />
+          <ScalarProperty Name="MaND" ColumnName="MaND" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AITinNhans">
+      <EntityTypeMapping TypeName="COFFEEModel.AITinNhan">
+        <MappingFragment StoreEntitySet="AITinNhan">
+          <ScalarProperty Name="MaTinNhan" ColumnName="MaTinNhan" />
+          <ScalarProperty Name="MaChat" ColumnName="MaChat" />
+          <ScalarProperty Name="LoaiNguoiGui" ColumnName="LoaiNguoiGui" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="DaDoc" ColumnName="DaDoc" />
+          <ScalarProperty Name="Tokens" ColumnName="Tokens" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietDonHangs">
+      <EntityTypeMapping TypeName="COFFEEModel.ChiTietDonHang">
+        <MappingFragment StoreEntitySet="ChiTietDonHang">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietGioHangs">
+      <EntityTypeMapping TypeName="COFFEEModel.ChiTietGioHang">
+        <MappingFragment StoreEntitySet="ChiTietGioHang">
+          <ScalarProperty Name="MaGH" ColumnName="MaGH" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhGias">
+      <EntityTypeMapping TypeName="COFFEEModel.DanhGia">
+        <MappingFragment StoreEntitySet="DanhGia">
+          <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="MaND" ColumnName="MaND" />
+          <ScalarProperty Name="SoSao" ColumnName="SoSao" />
+          <ScalarProperty Name="BinhLuan" ColumnName="BinhLuan" />
+          <ScalarProperty Name="NgayDG" ColumnName="NgayDG" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhMucs">
+      <EntityTypeMapping TypeName="COFFEEModel.DanhMuc">
+        <MappingFragment StoreEntitySet="DanhMuc">
+          <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+          <ScalarProperty Name="TenDM" ColumnName="TenDM" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiaChiGiaoHangs">
+      <EntityTypeMapping TypeName="COFFEEModel.DiaChiGiaoHang">
+        <MappingFragment StoreEntitySet="DiaChiGiaoHang">
+          <ScalarProperty Name="MaDC" ColumnName="MaDC" />
+          <ScalarProperty Name="MaND" ColumnName="MaND" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Tinh" ColumnName="Tinh" />
+          <ScalarProperty Name="Huyen" ColumnName="Huyen" />
+          <ScalarProperty Name="Xa" ColumnName="Xa" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="LaMacDinh" ColumnName="LaMacDinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonHangs">
+      <EntityTypeMapping TypeName="COFFEEModel.DonHang">
+        <MappingFragment StoreEntitySet="DonHang">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="MaND" ColumnName="MaND" />
+          <ScalarProperty Name="MaDC" ColumnName="MaDC" />
+          <ScalarProperty Name="MaNVGiaoHang" ColumnName="MaNVGiaoHang" />
+          <ScalarProperty Name="MaNVDuyet" ColumnName="MaNVDuyet" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="PhiVanChuyen" ColumnName="PhiVanChuyen" />
+          <ScalarProperty Name="TrangThaiDon" ColumnName="TrangThaiDon" />
+          <ScalarProperty Name="MaNguoiDuyet" ColumnName="MaNguoiDuyet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GioHangs">
+      <EntityTypeMapping TypeName="COFFEEModel.GioHang">
+        <MappingFragment StoreEntitySet="GioHang">
+          <ScalarProperty Name="MaGH" ColumnName="MaGH" />
+          <ScalarProperty Name="MaND" ColumnName="MaND" />
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HinhAnhSanPhams">
+      <EntityTypeMapping TypeName="COFFEEModel.HinhAnhSanPham">
+        <MappingFragment StoreEntitySet="HinhAnhSanPham">
+          <ScalarProperty Name="MaHA" ColumnName="MaHA" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDungs">
+      <EntityTypeMapping TypeName="COFFEEModel.NguoiDung">
+        <MappingFragment StoreEntitySet="NguoiDung">
+          <ScalarProperty Name="MaND" ColumnName="MaND" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="VaiTro" ColumnName="VaiTro" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+          <ScalarProperty Name="DiaChiGiaoHang" ColumnName="DiaChiGiaoHang" />
+          <ScalarProperty Name="Tinh" ColumnName="Tinh" />
+          <ScalarProperty Name="Huyen" ColumnName="Huyen" />
+          <ScalarProperty Name="Xa" ColumnName="Xa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="COFFEEModel.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="MoTaChiTiet" ColumnName="MoTaChiTiet" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="LuotBan" ColumnName="LuotBan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhToans">
+      <EntityTypeMapping TypeName="COFFEEModel.ThanhToan">
+        <MappingFragment StoreEntitySet="ThanhToan">
+          <ScalarProperty Name="MaTT" ColumnName="MaTT" />
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="PhuongThuc" ColumnName="PhuongThuc" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

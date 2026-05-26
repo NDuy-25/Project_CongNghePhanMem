@@ -1,0 +1,20 @@
+﻿@model App12COFFEE.Models.NguoiDung
+@{
+    ViewBag.Title = "Chi tiết người dùng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="color:#C9A86A;">Chi tiết người dùng</h2>
+
+<div class="card" style="background:#222; color:#fff; padding:20px; border-radius:8px;">
+    <p><strong>Mã ND:</strong> @Model.MaND</p>
+    <p><strong>Tên đăng nhập:</strong> @Model.TenDangNhap</p>
+    <p><strong>Họ tên:</strong> @Model.HoTen</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Điện thoại:</strong> @Model.DienThoai</p>
+    <p><strong>Địa chỉ:</strong> @Model.DiaChiGiaoHang, @Model.Xa, @Model.Huyen, @Model.Tinh</p>
+    <p><strong>Ngày tạo:</strong> @Model.NgayTao.ToString("dd/MM/yyyy")</p>
+    <p><strong>Trạng thái:</strong> @(Model.TrangThai ? "Hoạt động" : "Ngừng")</p>
+</div>
+
+<a href="@Url.Action("QuanLyNguoiDung")" class="btn btn-secondary">Quay lại</a>
