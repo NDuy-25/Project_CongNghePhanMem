@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Views",
-    "\\Views\\Home"
+    "\\Views\\Home",
+    "\\Views\\NguoiDungs",
+    "\\Views\\SanPhamAdmin"
   ],
-  "SelectedNode": "\\Views\\Home\\GioiThieu.cshtml",
+  "SelectedNode": "\\Views\\NguoiDungs\\DangKy.cshtml",
   "PreviewInSolutionExplorer": false
 }
