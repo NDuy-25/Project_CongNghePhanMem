@@ -1,0 +1,54 @@
+@{
+    ViewBag.Title = "Đánh giá và Chat AI";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var danhGias = ViewBag.DanhGias as IEnumerable<App12COFFEE.Models.DanhGia>;
+    var chats = ViewBag.Chats as IEnumerable<App12COFFEE.Models.AIChat>;
+}
+<style>
+.page-panel{background:#fff;border-radius:14px;padding:24px;box-shadow:0 12px 35px rgba(15,23,42,.08);margin-bottom:20px}
+.page-title{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}
+.page-title h2{margin:0;color:#3b2416;font-weight:800}
+.muted{color:#64748b}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.item-card{border:1px solid #e2e8f0;border-radius:12px;padding:16px;background:#fff}
+.table-clean{width:100%;border-collapse:collapse}.table-clean th,.table-clean td{padding:12px;border-bottom:1px solid #edf2f7;text-align:left;vertical-align:top}
+.badge-soft{display:inline-block;padding:4px 10px;border-radius:999px;background:#fef3c7;color:#92400e;font-weight:700;font-size:12px}
+.btn-main{display:inline-block;background:#7c3f16;color:#fff!important;border:0;border-radius:8px;padding:9px 14px;text-decoration:none;font-weight:700}
+.btn-light{display:inline-block;background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;text-decoration:none}
+.btn-danger-soft{display:inline-block;background:#fee2e2;color:#991b1b!important;border:1px solid #fecaca;border-radius:8px;padding:8px 12px;text-decoration:none}
+input,select,textarea{border:1px solid #cbd5e1;border-radius:8px;padding:9px 11px;width:100%;box-sizing:border-box}label{font-weight:700;margin:8px 0 4px;display:block}
+</style>
+<div class="page-panel">
+    <div class="page-title"><h2>Theo dõi đánh giá sản phẩm</h2></div>
+    <table class="table-clean">
+        <thead><tr><th>Khách hàng</th><th>Sản phẩm</th><th>Sao</th><th>Bình luận</th><th>Ngày</th></tr></thead>
+        <tbody>
+        @foreach (var dg in danhGias) {
+            <tr>
+                <td>@(dg.NguoiDung != null ? dg.NguoiDung.HoTen : "")</td>
+                <td>@(dg.SanPham != null ? dg.SanPham.TenSP : "")</td>
+                <td>@(dg.SoSao ?? 0)</td>
+                <td>@dg.BinhLuan</td>
+                <td>@(dg.NgayDG.HasValue ? dg.NgayDG.Value.ToString("dd/MM/yyyy HH:mm") : "")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<div class="page-panel">
+    <div class="page-title"><h2>Lịch sử Chat AI</h2></div>
+    <table class="table-clean">
+        <thead><tr><th>Khách hàng</th><th>Tiêu đề</th><th>Ngày tạo</th><th>Số tin nhắn</th><th>Tin gần nhất</th></tr></thead>
+        <tbody>
+        @foreach (var chat in chats) {
+            var last = chat.AITinNhans.OrderByDescending(t => t.ThoiGian).FirstOrDefault();
+            <tr>
+                <td>@(chat.NguoiDung != null ? chat.NguoiDung.HoTen : chat.MaND.ToString())</td>
+                <td>@chat.TieuDe</td>
+                <td>@(chat.NgayTao.HasValue ? chat.NgayTao.Value.ToString("dd/MM/yyyy HH:mm") : "")</td>
+                <td>@chat.AITinNhans.Count</td>
+                <td>@(last != null ? last.NoiDung : "")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

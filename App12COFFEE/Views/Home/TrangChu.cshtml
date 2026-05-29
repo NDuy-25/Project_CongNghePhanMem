@@ -1,4 +1,4 @@
-﻿@model IEnumerable<QL12COFFEE_65130628.Models.SanPham>
+﻿@model IEnumerable<App12COFFEE.Models.SanPham>
 
 @{
     ViewBag.Title = "Trang chủ";
@@ -17,8 +17,8 @@
         </p>
 
         <div class="home-hero-buttons">
-            <a href="@Url.Action("Menu","Home_65130628")" class="btn btn-primary">Xem Menu</a>
-            <a href="@Url.Action("Index","GioHang_65130628")" class="btn btn-outline">Giỏ hàng của bạn</a>
+            <a href="@Url.Action("Menu","Home")" class="btn btn-primary">Xem Menu</a>
+            <a href="@Url.Action("Index","GioHang")" class="btn btn-outline">Giỏ hàng của bạn</a>
         </div>
     </div>
 </div>
@@ -36,7 +36,7 @@
             var ha = sp.HinhAnhSanPhams.FirstOrDefault();    
 
             <div class="product-card scroll-animate delay-1">
-                <img src="@Url.Content("~/Content/Images/" + (ha != null ? ha.DuongDan : "no-image.jpg"))"
+                <img src="@Url.Content("~/Content/Images/" + (ha != null ? ha.DuongDan : "no-image.jpg"))" onerror="this.onerror=null;this.src='/Content/Images/no-image.jpg';"
                      alt="@sp.TenSP"
                      class="product-img" />
 
@@ -51,7 +51,7 @@
 
                     <div class="product-meta">
                         <span class="price">@String.Format("{0:0,0}đ", sp.Gia)</span>
-                        <a href="@Url.Action("Them","GioHang_65130628", new { maSP = sp.MaSP })"
+                        <a href="@Url.Action("Them","GioHang", new { maSP = sp.MaSP })"
                            class="btn btn-primary btn-sm">
                             Đặt ngay
                         </a>
@@ -95,3 +95,5 @@
         </div>
     </div>
 </div>
+
+

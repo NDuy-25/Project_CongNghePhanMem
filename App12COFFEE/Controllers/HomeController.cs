@@ -10,6 +10,11 @@ namespace App12COFFEE.Controllers
     public class HomeController : Controller
     {
         private Entities db = new Entities();
+
+        public ActionResult Index()
+        {
+            return RedirectToAction("TrangChu");
+        }
         // ========== TRANG CHỦ ==========
         public ActionResult TrangChu()
         {
@@ -61,6 +66,28 @@ namespace App12COFFEE.Controllers
         }
 
 
+
+        // ========== CHI TIẾT SẢN PHẨM ==========
+        public ActionResult ChiTietSanPham(int id)
+        {
+            var sanPham = db.SanPhams
+                            .Include("DanhMuc")
+                            .Include("HinhAnhSanPhams")
+                            .Include("DanhGias.NguoiDung")
+                            .FirstOrDefault(sp => sp.MaSP == id && sp.TrangThai == true);
+
+            if (sanPham == null) return HttpNotFound();
+
+            ViewBag.SanPhamLienQuan = db.SanPhams
+                .Include("HinhAnhSanPhams")
+                .Where(sp => sp.MaDM == sanPham.MaDM && sp.MaSP != id && sp.TrangThai == true)
+                .OrderBy(sp => sp.MaSP)
+                .Take(4)
+                .ToList();
+
+            return View(sanPham);
+        }
+
         // ========== LIÊN HỆ ==========
         [HttpGet]
         public ActionResult LienHe()
@@ -83,3 +110,4 @@ namespace App12COFFEE.Controllers
         }
     }
 }
+

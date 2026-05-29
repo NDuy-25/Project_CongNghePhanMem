@@ -36,9 +36,9 @@
                 <td>@nd.NgayTao.ToString("dd/MM/yyyy")</td>
                 <td>@(nd.TrangThai ? "Hoạt động" : "Ngừng")</td>
                 <td>
-                    <a href="@Url.Action("ChiTietNguoiDung", "Admin_65130628", new { id = nd.MaND })"
+                    <a href="@Url.Action("ChiTietNguoiDung", "Admin", new { id = nd.MaND })"
                        class="btn btn-info btn-sm">Chi tiết</a>
-                    <a href="@Url.Action("XoaNguoiDung", "Admin_65130628", new { id = nd.MaND })"
+                    <a href="@Url.Action("XoaNguoiDung", "Admin", new { id = nd.MaND })"
                        class="btn btn-danger btn-sm"
                        onclick="return confirm('Bạn có chắc muốn xóa người dùng này?');">Xóa</a>
                 </td>

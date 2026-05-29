@@ -5,99 +5,69 @@
 }
 
 <style>
-    h2 {
-        color: #C9A86A;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    label {
-        color: #fff;
-        margin-bottom: 5px;
-        display: block;
-    }
-
-    .form-control {
-        background: #222;
-        color: #fff;
-        border: 1px solid #444;
-        border-radius: 5px;
-        padding: 8px;
-    }
-
-    .btn {
-        padding: 8px 16px;
-        border-radius: 5px;
-        text-decoration: none;
-        margin-right: 5px;
-    }
-
-    .btn-warning {
-        background: #ffc107;
-        color: #000;
-    }
-
-        .btn-warning:hover {
-            background: #e0a800;
-        }
-
-    .btn-secondary {
-        background: #6c757d;
-        color: #fff;
-    }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
+.admin-form-card{max-width:860px;background:#fff;border-radius:14px;padding:24px;box-shadow:0 12px 35px rgba(15,23,42,.08)}
+.admin-form-card h2{margin:0 0 18px;color:#3b2416;font-weight:800}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.form-group.full{grid-column:1/-1}.form-group label{display:block;margin-bottom:6px;color:#334155;font-weight:700}.form-control{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:10px;padding:10px 12px;background:#fff;color:#111827}.note{margin-top:6px;color:#64748b;font-size:13px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn-main,.btn-light{border:0;border-radius:10px;padding:10px 16px;font-weight:800;text-decoration:none!important}.btn-main{background:#c9a86a;color:#111}.btn-light{background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1}@@media(max-width:720px){.form-grid{grid-template-columns:1fr}}
 </style>
 
-<h2>Sửa sản phẩm</h2>
+<div class="admin-form-card">
+    <h2>Sửa sản phẩm</h2>
 
-@using (Html.BeginForm("SuaSanPham", "SanPhamAdmin_65130628", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(m => m.MaSP)
+    @using (Html.BeginForm("SuaSanPham", "SanPhamAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.MaSP)
+        <div class="form-grid">
+            <div class="form-group">
+                @Html.LabelFor(m => m.TenSP, "Tên sản phẩm")
+                @Html.TextBoxFor(m => m.TenSP, new { @class = "form-control", required = "required", maxlength = "150" })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.TenSP, "Tên sản phẩm")
-        @Html.TextBoxFor(m => m.TenSP, new { @class = "form-control" })
-    </div>
+            <div class="form-group">
+                @Html.Label("Danh mục")
+                @Html.DropDownListFor(m => m.MaDM, new SelectList(ViewBag.DanhMuc, "MaDM", "TenDM", Model.MaDM), "-- Chọn danh mục --", new { @class = "form-control", required = "required" })
+            </div>
 
-    <div class="form-group">
-        @Html.Label("Danh mục")
-        @Html.DropDownList("MaDM", new SelectList(ViewBag.DanhMuc, "MaDM", "TenDM", Model.MaDM), "-- Chọn danh mục --", new { @class = "form-control" })
-    </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gia, "Giá (VND)")
+                @Html.TextBoxFor(m => m.Gia, new { @class = "form-control", type = "number", min = "0", required = "required" })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Gia, "Giá (VND)")
-        @Html.TextBoxFor(m => m.Gia, new { @class = "form-control", type = "number", min = "0" })
-    </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.SoLuongTon, "Số lượng tồn")
+                @Html.TextBoxFor(m => m.SoLuongTon, new { @class = "form-control", type = "number", min = "0", required = "required" })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.SoLuongTon, "Số lượng tồn")
-        @Html.TextBoxFor(m => m.SoLuongTon, new { @class = "form-control", type = "number", min = "0" })
-    </div>
+            <div class="form-group full">
+                @Html.LabelFor(m => m.MoTa, "Mô tả ngắn")
+                @Html.TextAreaFor(m => m.MoTa, new { @class = "form-control", rows = 3 })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.MoTa, "Mô tả")
-        @Html.TextAreaFor(m => m.MoTa, new { @class = "form-control", rows = 3 })
-    </div>
+            <div class="form-group full">
+                @Html.LabelFor(m => m.MoTaChiTiet, "Mô tả chi tiết")
+                @Html.TextAreaFor(m => m.MoTaChiTiet, new { @class = "form-control", rows = 4 })
+            </div>
 
-    <div class="form-group">
-        @Html.Label("Trạng thái")
-        @Html.DropDownListFor(m => m.TrangThai,
-            new SelectList(new[]
-            {
-                new { Value = true, Text = "Đang bán" },
-                new { Value = false, Text = "Ngừng bán" }
-            }, "Value", "Text", Model.TrangThai),
-            "-- Chọn trạng thái --",
-            new { @class = "form-control" })
-    </div>
+            <div class="form-group">
+                @Html.Label("Trạng thái")
+                @Html.DropDownListFor(m => m.TrangThai,
+                    new SelectList(new[]
+                    {
+                        new { Value = "true", Text = "Đang bán" },
+                        new { Value = "false", Text = "Ngừng bán" }
+                    }, "Value", "Text", (Model.TrangThai ?? true).ToString().ToLower()),
+                    new { @class = "form-control" })
+            </div>
 
-    <button type="submit" class="btn btn-warning">Cập nhật</button>
-    <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
-}
+            <div class="form-group">
+                <label>Đổi hình ảnh</label>
+                <input type="file" name="fileUpload" class="form-control" accept=".jpg,.jpeg,.png,.webp" />
+                <div class="note">Bỏ trống nếu muốn giữ ảnh hiện tại.</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button type="submit" class="btn-main">Cập nhật</button>
+            <a href="@Url.Action("Index", "SanPhamAdmin")" class="btn-light">Quay lại</a>
+        </div>
+    }
+</div>

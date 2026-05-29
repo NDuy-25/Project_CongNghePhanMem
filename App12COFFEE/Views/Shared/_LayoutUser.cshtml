@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var userRole = (Session["UserRole"] ?? "").ToString();
+    var isAdminUser = string.Equals(userRole, "Admin", System.StringComparison.OrdinalIgnoreCase);
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,7 +16,7 @@
     <!-- HEADER -->
     <div class="header">
         <div class="header-left">
-            <a href="@Url.Action("TrangChu", "Home_65130628")" class="logo-link">
+            <a href="@Url.Action("TrangChu", "Home")" class="logo-link">
                 <img src="~/Content/logo12.jpg" alt="12 COFFEE" />
             </a>
 
@@ -21,6 +25,12 @@
                 <a href="@Url.Action("Menu", "Home")">Menu</a>
                 <a href="@Url.Action("GioiThieu", "Home")">12 COFFEE</a>
                 <a href="@Url.Action("LienHe", "Home")">Liên hệ</a>
+                <a href="@Url.Action("LichSu", "DonHang")">Đơn hàng</a>
+                <a href="@Url.Action("Index", "AIChat")">AI tư vấn</a>
+                @if (isAdminUser)
+                {
+                    <a href="@Url.Action("Index", "Admin")">Trang quản trị</a>
+                }
             </div>
         </div>
 
@@ -38,7 +48,7 @@
             else
             {
                 <!-- ✅ CHỈNH Ở ĐÂY: đổi div -> a để bấm được -->
-                <a href="@Url.Action("ThongTin", "TaiKhoan")" class="account-box logged-in" title="Xem thông tin tài khoản">
+                <a href="@(isAdminUser ? Url.Action("Index", "Admin") : Url.Action("ThongTin", "TaiKhoan"))" class="account-box logged-in" title="@(isAdminUser ? "Về trang quản trị" : "Xem thông tin tài khoản")">
                     <i class="fa-regular fa-user"></i>
                     <div class="account-text">
                         Xin chào,
@@ -46,7 +56,7 @@
                     </div>
                 </a>
 
-                <a href="@Url.Action("DangXuat", "NguoiDungs8")" class="btn-logout-header">
+                <a href="@Url.Action("DangXuat", "NguoiDungs")" class="btn-logout-header">
                     Đăng xuất
                 </a>
             }
@@ -197,3 +207,5 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+

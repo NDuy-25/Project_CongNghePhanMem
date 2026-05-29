@@ -1,0 +1,90 @@
+﻿@model IEnumerable<App12COFFEE.Models.DonHang>
+@{
+    ViewBag.Title = "Lịch sử đơn hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    var orders = Model ?? Enumerable.Empty<App12COFFEE.Models.DonHang>();
+}
+<style>
+.order-shell{max-width:1220px;margin:0 auto;padding:38px 22px;color:#1f2937}.order-panel{background:#fff;border:1px solid #e6edf5;border-radius:20px;padding:26px;box-shadow:0 20px 55px rgba(15,23,42,.12)}.order-title{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:22px}.order-title h2{margin:0;color:#3b2416;font-size:30px;font-weight:900}.order-title p{margin:7px 0 0;color:#64748b}.btn-soft,.btn-main{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:9px 14px;border-radius:12px;text-decoration:none!important;font-weight:800;white-space:nowrap}.btn-soft{background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1}.btn-main{background:#c9a86a;color:#111!important;border:1px solid #c9a86a}.btn-soft:hover,.btn-main:hover{filter:brightness(.97)}.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(180px,1fr));gap:14px;margin-bottom:18px}.summary-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:16px}.summary-card span{display:block;color:#64748b;font-size:13px;font-weight:700}.summary-card strong{display:block;margin-top:7px;color:#111827;font-size:22px}.table-wrap{overflow:auto;border:1px solid #e5edf5;border-radius:16px}.order-table{width:100%;border-collapse:collapse;min-width:940px;background:#fff;color:#1f2937}.order-table th{background:#f8fafc;color:#475569;font-size:12px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:13px 14px;border-bottom:1px solid #e5edf5}.order-table td{padding:15px 14px;border-bottom:1px solid #eef2f7;vertical-align:top;color:#1f2937}.order-table tr:last-child td{border-bottom:0}.order-code{font-weight:900;color:#3b2416}.product-list{display:flex;flex-direction:column;gap:4px;max-width:360px}.product-name{font-weight:750;color:#111827}.muted{color:#64748b}.money{font-weight:900;color:#8a4b16}.badge-status{display:inline-flex;align-items:center;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:850;background:#fef3c7;color:#92400e;border:1px solid #fde68a}.badge-status.done{background:#dcfce7;color:#166534;border-color:#bbf7d0}.badge-status.shipping{background:#dbeafe;color:#1d4ed8;border-color:#bfdbfe}.badge-status.cancel{background:#fee2e2;color:#991b1b;border-color:#fecaca}.empty-state{text-align:center;padding:42px 18px;color:#64748b}.empty-state strong{display:block;color:#3b2416;font-size:22px;margin-bottom:8px}@@media(max-width:760px){.order-shell{padding:22px 12px}.order-panel{padding:18px}.order-title{flex-direction:column}.summary-grid{grid-template-columns:1fr}.order-title h2{font-size:25px}}
+</style>
+@functions {
+    public string StatusClass(string status)
+    {
+        status = status ?? "";
+        if (status.Contains("thành công") || status.Contains("Đã giao") || status.Contains("Hoàn tất")) return "done";
+        if (status.Contains("Đang giao") || status.Contains("Đã xác nhận")) return "shipping";
+        if (status.Contains("hủy") || status.Contains("Từ chối") || status.Contains("thất bại")) return "cancel";
+        return "";
+    }
+}
+<div class="order-shell">
+    <section class="order-panel">
+        <div class="order-title">
+            <div>
+                <h2>Lịch sử đơn hàng</h2>
+                <p>Theo dõi trạng thái xử lý, thanh toán và chi tiết các đơn đã đặt tại COFFEE 12.</p>
+            </div>
+            <a class="btn-main" href="@Url.Action("Menu", "Home")"><i class="fa-solid fa-mug-hot"></i> Tiếp tục mua hàng</a>
+        </div>
+
+        @if (TempData["Message"] != null)
+        {
+            <div class="summary-card" style="margin-bottom:16px">@TempData["Message"]</div>
+        }
+
+        <div class="summary-grid">
+            <div class="summary-card"><span>Tổng đơn hàng</span><strong>@orders.Count()</strong></div>
+            <div class="summary-card"><span>Đơn đang xử lý</span><strong>@orders.Count(x => !(x.TrangThaiDon ?? "").Contains("thành công") && !(x.TrangThaiDon ?? "").Contains("hủy"))</strong></div>
+            <div class="summary-card"><span>Tổng giá trị</span><strong>@String.Format("{0:N0}đ", orders.Sum(x => x.TongTien ?? 0))</strong></div>
+        </div>
+
+        @if (!orders.Any())
+        {
+            <div class="empty-state">
+                <strong>Chưa có đơn hàng</strong>
+                Bạn hãy chọn món trong menu và đặt hàng để theo dõi tại đây.
+            </div>
+        }
+        else
+        {
+            <div class="table-wrap">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Ngày đặt</th>
+                            <th>Sản phẩm</th>
+                            <th>Thanh toán</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var dh in orders)
+                        {
+                            var tt = dh.ThanhToans.FirstOrDefault();
+                            <tr>
+                                <td><span class="order-code">#@dh.MaDH</span></td>
+                                <td>@(dh.NgayDat.HasValue ? dh.NgayDat.Value.ToString("dd/MM/yyyy HH:mm") : "Chưa ghi nhận")</td>
+                                <td>
+                                    <div class="product-list">
+                                        @foreach (var ct in dh.ChiTietDonHangs)
+                                        {
+                                            <span class="product-name">@(ct.SanPham != null ? ct.SanPham.TenSP : ("Sản phẩm #" + ct.MaSP)) x@(ct.SoLuong ?? 0)</span>
+                                        }
+                                    </div>
+                                </td>
+                                <td>@(tt != null ? (tt.PhuongThuc + " - " + tt.TrangThai) : "Chưa ghi nhận")</td>
+                                <td><span class="money">@String.Format("{0:N0}đ", dh.TongTien ?? 0)</span></td>
+                                <td><span class="badge-status @StatusClass(dh.TrangThaiDon)">@(!String.IsNullOrWhiteSpace(dh.TrangThaiDon) ? dh.TrangThaiDon : "Chưa cập nhật")</span></td>
+                                <td><a class="btn-soft" href="@Url.Action("ChiTiet", "DonHang", new { id = dh.MaDH })">Chi tiết</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </section>
+</div>
+

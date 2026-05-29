@@ -58,13 +58,45 @@ namespace App12COFFEE.Controllers
             }
             db.SaveChanges();
 
-            PayOSService pay = new PayOSService();
-            string url = pay.CreatePayment(maDH, amount);
-
-            return Redirect(url);
+            ViewBag.MaDH = maDH;
+            ViewBag.TongTien = tongTien;
+            ViewBag.NoiDung = "COFFEE12 DON " + maDH;
+            return View();
         }
 
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult XacNhanVietQR(int maDH)
+        {
+            var dh = db.DonHangs.Find(maDH);
+            if (dh == null) return HttpNotFound();
+
+            var tt = db.ThanhToans.FirstOrDefault(x => x.MaDH == maDH);
+            if (tt == null)
+            {
+                tt = new ThanhToan
+                {
+                    MaDH = maDH,
+                    PhuongThuc = "VietQR",
+                    SoTien = dh.TongTien,
+                    NgayThanhToan = DateTime.Now,
+                    TrangThai = "Đã thanh toán"
+                };
+                db.ThanhToans.Add(tt);
+            }
+            else
+            {
+                tt.PhuongThuc = "VietQR";
+                tt.SoTien = dh.TongTien;
+                tt.NgayThanhToan = DateTime.Now;
+                tt.TrangThai = "Đã thanh toán";
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("ThanhToanThanhCong", new { maDH = maDH });
+        }
         // ========================= RETURN URL =========================
         public ActionResult ThanhToanThanhCong(int maDH)
         {

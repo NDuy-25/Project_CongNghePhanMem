@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Đổi mật khẩu";
 }
-<link rel="stylesheet" href="~/Content/login.css" />
+
 
 <div class="form-wrapper">
     <div class="form-box">
@@ -17,7 +17,7 @@
             <div class="alert alert-success">@ViewBag.Message</div>
         }
 
-        @using (Html.BeginForm("DoiMatKhau", "NguoiDungs_65130628", FormMethod.Post))
+        @using (Html.BeginForm("DoiMatKhau", "NguoiDungs", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
@@ -52,3 +52,4 @@
         }
     </div>
 </div>
+

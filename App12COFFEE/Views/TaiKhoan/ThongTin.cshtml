@@ -1,4 +1,4 @@
-﻿@model QL12COFFEE_65130628.Models.NguoiDung
+﻿@model App12COFFEE.Models.NguoiDung
 @{
     ViewBag.Title = "Thông tin tài khoản";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -54,7 +54,7 @@
         <!-- ================== FORM CẬP NHẬT ĐỊA CHỈ ================== -->
         <div class="section-title">Địa chỉ giao hàng</div>
 
-        @using (Html.BeginForm("CapNhatDiaChi", "TaiKhoan_65130628", FormMethod.Post, new { @class = "address-form" }))
+        @using (Html.BeginForm("CapNhatDiaChi", "TaiKhoan", FormMethod.Post, new { @class = "address-form" }))
         {
             @Html.AntiForgeryToken()
 
@@ -82,7 +82,7 @@
             <div class="profile-actions">
                 <button type="button" class="btn btn-outline" id="btnEdit">Chỉnh sửa</button>
                 <button type="submit" class="btn btn-primary" id="btnSave" style="display:none;">Lưu</button>
-                <a href="@Url.Action("ThongTin","TaiKhoan_65130628")" class="btn btn-ghost" id="btnCancel" style="display:none;">Hủy</a>
+                <a href="@Url.Action("ThongTin","TaiKhoan")" class="btn btn-ghost" id="btnCancel" style="display:none;">Hủy</a>
             </div>
         }
 
@@ -100,7 +100,7 @@
             <div class="profile-alert success">@TempData["PassMessage"]</div>
         }
 
-        @using (Html.BeginForm("DoiMatKhau", "TaiKhoan_65130628", FormMethod.Post, new { @class = "password-form" }))
+        @using (Html.BeginForm("DoiMatKhau", "TaiKhoan", FormMethod.Post, new { @class = "password-form" }))
         {
             @Html.AntiForgeryToken()
 

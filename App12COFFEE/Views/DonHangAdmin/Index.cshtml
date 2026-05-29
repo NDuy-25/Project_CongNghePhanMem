@@ -143,7 +143,7 @@
                     }
                 </td>
 
-                <td>@dh.NgayDat.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@(dh.NgayDat.HasValue ? dh.NgayDat.Value.ToString("dd/MM/yyyy HH:mm") : "Chưa có")</td>
                 <td>@String.Format("{0:N0}", dh.TongTien) VND</td>
 
                 <!-- PHƯƠNG THỨC THANH TOÁN -->
@@ -199,13 +199,13 @@
                 <td>@dh.TrangThaiDon</td>
 
                 <td>
-                    <a href="@Url.Action("Details", "DonHangAdmin_65130628", new { id = dh.MaDH })" class="btn">Chi tiết</a>
-                    <a href="@Url.Action("Edit", "DonHangAdmin_65130628", new { id = dh.MaDH })" class="btn">Sửa</a>
-                    <a href="@Url.Action("Delete", "DonHangAdmin_65130628", new { id = dh.MaDH })" class="btn btn-danger">Xóa</a>
+                    <a href="@Url.Action("Details", "DonHangAdmin", new { id = dh.MaDH })" class="btn">Chi tiết</a>
+                    <a href="@Url.Action("Edit", "DonHangAdmin", new { id = dh.MaDH })" class="btn">Sửa</a>
+                    <a href="@Url.Action("Delete", "DonHangAdmin", new { id = dh.MaDH })" class="btn btn-danger">Xóa</a>
 
                     @if (coTheDuyet)
                     {
-                        <a href="@Url.Action("DuyetDon", "DonHangAdmin_65130628", new { maDH = dh.MaDH })"
+                        <a href="@Url.Action("DuyetDon", "DonHangAdmin", new { maDH = dh.MaDH })"
                            class="btn btn-warning"
                            onclick="return confirm('Bạn có chắc muốn duyệt đơn này?');">
                             Duyệt đơn
@@ -223,3 +223,4 @@
         }
     </tbody>
 </table>
+

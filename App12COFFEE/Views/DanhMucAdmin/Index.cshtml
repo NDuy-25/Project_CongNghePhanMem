@@ -1,0 +1,51 @@
+﻿@model IEnumerable<App12COFFEE.Models.DanhMuc>
+@{
+    ViewBag.Title = "Quản lý danh mục";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+.page-panel{background:#fff;border-radius:14px;padding:24px;box-shadow:0 12px 35px rgba(15,23,42,.08);margin-bottom:20px}.page-title{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.page-title h2{margin:0;color:#3b2416;font-weight:800}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.table-clean{width:100%;border-collapse:collapse}.table-clean th,.table-clean td{padding:12px;border-bottom:1px solid #edf2f7;text-align:left;vertical-align:top}.table-clean th{background:#f8fafc;color:#334155}.btn-main{display:inline-block;background:#7c3f16;color:#fff!important;border:0;border-radius:8px;padding:9px 14px;text-decoration:none;font-weight:700}.btn-light{display:inline-block;background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;text-decoration:none}.btn-danger-soft{display:inline-block;background:#fee2e2;color:#991b1b!important;border:1px solid #fecaca;border-radius:8px;padding:8px 12px;text-decoration:none}input{border:1px solid #cbd5e1;border-radius:8px;padding:9px 11px;width:100%;box-sizing:border-box}label{font-weight:700;margin:8px 0 4px;display:block}.alert{padding:10px 12px;border-radius:10px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;margin-bottom:14px}
+</style>
+<div class="page-panel">
+    <div class="page-title"><h2>Quản lý danh mục</h2></div>
+    @if (TempData["Message"] != null) { <div class="alert">@TempData["Message"]</div> }
+
+    @using (Html.BeginForm("Them", "DanhMucAdmin", FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+        <div class="grid" style="align-items:end">
+            <div><label>Tên danh mục</label><input name="TenDM" required maxlength="100" /></div>
+            <div><label>Mô tả</label><input name="MoTa" maxlength="255" /></div>
+            <div><label>Hình ảnh</label><input name="HinhAnh" maxlength="255" /></div>
+            <div><button class="btn-main" type="submit">Thêm danh mục</button></div>
+        </div>
+    }
+
+    <table class="table-clean" style="margin-top:18px">
+        <thead><tr><th>Mã</th><th>Tên danh mục</th><th>Mô tả</th><th>Số sản phẩm</th><th>Cập nhật</th><th>Xóa</th></tr></thead>
+        <tbody>
+        @foreach (var dm in Model) {
+            var formId = "frmDanhMuc" + dm.MaDM;
+            <tr>
+                <td>
+                    @dm.MaDM
+                    <form id="@formId" action="@Url.Action("Sua", "DanhMucAdmin")" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="MaDM" value="@dm.MaDM" />
+                        <input type="hidden" name="HinhAnh" value="@dm.HinhAnh" />
+                    </form>
+                </td>
+                <td><input form="@formId" name="TenDM" value="@dm.TenDM" required maxlength="100" /></td>
+                <td><input form="@formId" name="MoTa" value="@dm.MoTa" maxlength="255" /></td>
+                <td>@(dm.SanPhams != null ? dm.SanPhams.Count : 0)</td>
+                <td><button form="@formId" class="btn-light" type="submit">Lưu</button></td>
+                <td>
+                    @using (Html.BeginForm("Xoa", "DanhMucAdmin", new { id = dm.MaDM }, FormMethod.Post, null)) {
+                        @Html.AntiForgeryToken()
+                        <button class="btn-danger-soft" type="submit" onclick="return confirm('Xóa danh mục này?')">Xóa</button>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

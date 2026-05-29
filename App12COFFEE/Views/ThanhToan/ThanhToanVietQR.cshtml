@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Thanh toán VietQR";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<link rel="stylesheet" href="~/Content/ThanhToanQR.css" />
+
+<div class="qr-page">
+    <div class="qr-card">
+        <div class="qr-info">
+            <p class="qr-eyebrow">Thanh toán chuyển khoản</p>
+            <h1>VietQR - Đơn hàng #@ViewBag.MaDH</h1>
+            <p>Vui lòng chuyển khoản đúng số tiền và nội dung bên dưới. Sau khi chuyển khoản, bấm xác nhận để hệ thống cập nhật trạng thái thanh toán vào SQL.</p>
+            <div class="qr-row"><span>Số tiền</span><strong>@String.Format("{0:N0}đ", ViewBag.TongTien)</strong></div>
+            <div class="qr-row"><span>Nội dung</span><strong>@ViewBag.NoiDung</strong></div>
+            <div class="qr-row"><span>Ngân hàng</span><strong>MB Bank - COFFEE 12</strong></div>
+            <div class="qr-row"><span>Số tài khoản</span><strong>0123456789</strong></div>
+            @using (Html.BeginForm("XacNhanVietQR", "ThanhToan", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="maDH" value="@ViewBag.MaDH" />
+                <button class="qr-button" type="submit">Tôi đã chuyển khoản</button>
+                <a class="qr-link" href="@Url.Action("LichSu", "DonHang")">Xem lịch sử đơn</a>
+            }
+        </div>
+        <div class="qr-box">
+            <div class="qr-fake">
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+            <p>QR minh họa dùng cho báo cáo/demo localhost</p>
+        </div>
+    </div>
+</div>

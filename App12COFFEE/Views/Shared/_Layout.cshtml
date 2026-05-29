@@ -1,39 +1,65 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@{
+    var userRole = (Session["UserRole"] ?? "").ToString();
+    var isAdminUser = string.Equals(userRole, "Admin", System.StringComparison.OrdinalIgnoreCase);
+}
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - COFFEE 12</title>
     @Styles.Render("~/Content/css")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/login.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+<body class="public-shell">
+    <header class="public-header">
+        <div class="public-header-inner">
+            <a class="public-brand" href="@Url.Action("TrangChu", "Home")">
+                <img src="~/Content/logo12.jpg" alt="COFFEE 12" />
+                <span>COFFEE 12</span>
+            </a>
+            <nav class="public-nav">
+                <a href="@Url.Action("TrangChu", "Home")">Trang chủ</a>
+                <a href="@Url.Action("Menu", "Home")">Menu</a>
+                <a href="@Url.Action("GioiThieu", "Home")">Giới thiệu</a>
+                <a href="@Url.Action("LienHe", "Home")">Liên hệ</a>
+                @if (isAdminUser)
+                {
+                    <a href="@Url.Action("Index", "Admin")">Trang quản trị</a>
+                }
+            </nav>
+            <div class="public-actions">
+                @if (Session["UserID"] == null)
+                {
+                    <a class="public-btn ghost" href="@Url.Action("DangNhap", "NguoiDungs")">Đăng nhập</a>
+                    <a class="public-btn" href="@Url.Action("DangKy", "NguoiDungs")">Đăng ký</a>
+                }
+                else
+                {
+                    <a class="public-btn ghost" href="@(isAdminUser ? Url.Action("Index", "Admin") : Url.Action("ThongTin", "TaiKhoan"))">@(isAdminUser ? "Trang quản trị" : Session["UserName"])</a>
+                    <a class="public-btn" href="@Url.Action("DangXuat", "NguoiDungs")">Đăng xuất</a>
+                }
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
+    </header>
+
+    <main class="public-main">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </main>
+
+    <footer class="public-footer">
+        <div>
+            <strong>COFFEE 12</strong>
+            <span>Hệ thống bán hàng và quản lý đơn hàng trực tuyến</span>
+        </div>
+        <span>&copy; @DateTime.Now.Year - COFFEE 12</span>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

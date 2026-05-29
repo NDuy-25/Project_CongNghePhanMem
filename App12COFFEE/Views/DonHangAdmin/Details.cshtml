@@ -2,99 +2,49 @@
 @{
     ViewBag.Title = "Chi tiết đơn hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var thanhToan = Model.ThanhToans != null ? Model.ThanhToans.FirstOrDefault() : null;
 }
 
 <style>
-    h2 {
-        color: #C9A86A;
-        margin-bottom: 20px;
-    }
-
-    .info-table {
-        width: 60%;
-        border-collapse: collapse;
-        margin-bottom: 30px;
-    }
-
-        .info-table th, .info-table td {
-            padding: 10px;
-            border: 1px solid #444;
-            text-align: left;
-        }
-
-        .info-table th {
-            background: #333;
-            color: #fff;
-            width: 30%;
-        }
-
-    .items-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-        .items-table th, .items-table td {
-            padding: 10px;
-            border: 1px solid #444;
-            text-align: center;
-        }
-
-        .items-table th {
-            background: #333;
-            color: #fff;
-        }
-
-        .items-table tbody tr:nth-child(odd) {
-            background: #222;
-        }
-
-        .items-table tbody tr:hover {
-            background: #444;
-        }
-
-    .btn {
-        padding: 8px 16px;
-        background: #C9A86A;
-        color: #000;
-        border-radius: 5px;
-        text-decoration: none;
-    }
-
-        .btn:hover {
-            background: #b8974d;
-        }
+.page-panel{background:#fff;border-radius:14px;padding:24px;box-shadow:0 12px 35px rgba(15,23,42,.08);margin-bottom:20px}.page-panel h2,.page-panel h3{color:#3b2416;font-weight:800}.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:22px}.info-item{border:1px solid #e2e8f0;border-radius:12px;padding:12px;background:#f8fafc}.info-item label{display:block;color:#64748b;font-weight:700;margin-bottom:4px}.items-table{width:100%;border-collapse:collapse;margin-top:12px}.items-table th,.items-table td{padding:12px;border-bottom:1px solid #edf2f7;text-align:left;vertical-align:middle}.items-table th{background:#f8fafc;color:#334155}.btn-light{display:inline-block;background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1;border-radius:10px;padding:9px 14px;font-weight:800;text-decoration:none!important;margin-top:16px}.money{font-weight:800;color:#7c3f16}
 </style>
 
-<h2>Chi tiết đơn hàng</h2>
+<div class="page-panel">
+    <h2>Chi tiết đơn hàng</h2>
 
-<table class="info-table">
-    <tr><th>Mã đơn hàng</th><td>@Model.MaDH</td></tr>
-    <tr><th>Ngày đặt</th><td>@Model.NgayDat.ToString("dd/MM/yyyy HH:mm")</td></tr>
-    <tr><th>Tổng tiền</th><td>@String.Format("{0:N0}", Model.TongTien) VND</td></tr>
-</table>
+    <div class="info-grid">
+        <div class="info-item"><label>Mã đơn hàng</label><strong>@Model.MaDH</strong></div>
+        <div class="info-item"><label>Ngày đặt</label><strong>@(Model.NgayDat.HasValue ? Model.NgayDat.Value.ToString("dd/MM/yyyy HH:mm") : "Chưa có")</strong></div>
+        <div class="info-item"><label>Khách hàng</label><strong>@(Model.NguoiDung != null ? Model.NguoiDung.HoTen : "Khách hàng")</strong></div>
+        <div class="info-item"><label>Trạng thái đơn</label><strong>@Model.TrangThaiDon</strong></div>
+        <div class="info-item"><label>Thanh toán</label><strong>@(thanhToan != null ? thanhToan.PhuongThuc + " - " + thanhToan.TrangThai : "Chưa có")</strong></div>
+        <div class="info-item"><label>Tổng tiền</label><strong class="money">@String.Format("{0:N0} VND", Model.TongTien ?? 0m)</strong></div>
+    </div>
 
-<h3 style="color:#C9A86A;">Danh sách món đã đặt</h3>
-<table class="items-table">
-    <thead>
-        <tr>
-            <th>Tên món</th>
-            <th>Số lượng</th>
-            <th>Đơn giá (VND)</th>
-            <th>Thành tiền (VND)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var ct in Model.ChiTietDonHangs)
+    <h3>Danh sách món đã đặt</h3>
+    <table class="items-table">
+        <thead>
+            <tr><th>Tên món</th><th>Số lượng</th><th>Đơn giá</th><th>Thành tiền</th></tr>
+        </thead>
+        <tbody>
+        @if (Model.ChiTietDonHangs != null && Model.ChiTietDonHangs.Any())
         {
-            <tr>
-                <td>@ct.SanPham.TenSP</td>
-                <td>@ct.SoLuong</td>
-                <td>@String.Format("{0:N0}", ct.DonGia)</td>
-                <td>@String.Format("{0:N0}", ct.SoLuong * ct.DonGia)</td>
-            </tr>
+            foreach (var ct in Model.ChiTietDonHangs)
+            {
+                <tr>
+                    <td>@(ct.SanPham != null ? ct.SanPham.TenSP : "Sản phẩm")</td>
+                    <td>@(ct.SoLuong ?? 0)</td>
+                    <td>@String.Format("{0:N0}", ct.DonGia ?? 0m)</td>
+                    <td>@String.Format("{0:N0}", (ct.SoLuong ?? 0) * (ct.DonGia ?? 0m))</td>
+                </tr>
+            }
         }
-    </tbody>
-</table>
+        else
+        {
+            <tr><td colspan="4">Đơn hàng chưa có món.</td></tr>
+        }
+        </tbody>
+    </table>
 
-<a href="@Url.Action("Index")" class="btn">Quay lại</a>
+    <a href="@Url.Action("Index", "DonHangAdmin")" class="btn-light">Quay lại</a>
+</div>

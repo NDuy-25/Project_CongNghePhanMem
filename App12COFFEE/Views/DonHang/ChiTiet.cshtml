@@ -1,0 +1,127 @@
+﻿@model App12COFFEE.Models.DonHang
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    var thanhToan = Model.ThanhToans.FirstOrDefault();
+    var diaChi = Model.DiaChiGiaoHang != null
+        ? String.Join(", ", new[] { Model.DiaChiGiaoHang.DiaChi, Model.DiaChiGiaoHang.Xa, Model.DiaChiGiaoHang.Huyen, Model.DiaChiGiaoHang.Tinh }.Where(x => !String.IsNullOrWhiteSpace(x)))
+        : (Model.NguoiDung != null ? Model.NguoiDung.DiaChiGiaoHang : "Chưa cập nhật");
+    var isDone = (Model.TrangThaiDon ?? "").Contains("thành công") || (Model.TrangThaiDon ?? "").Contains("Đã giao") || (Model.TrangThaiDon ?? "").Contains("Hoàn tất");
+}
+<style>
+.detail-shell{max-width:1220px;margin:0 auto;padding:38px 22px;color:#1f2937}.detail-panel{background:#fff;border:1px solid #e6edf5;border-radius:20px;padding:26px;box-shadow:0 20px 55px rgba(15,23,42,.12)}.detail-title{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:22px}.detail-title h2{margin:0;color:#3b2416;font-size:30px;font-weight:900}.detail-title p{margin:7px 0 0;color:#64748b}.btn-soft,.btn-main{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:9px 14px;border-radius:12px;text-decoration:none!important;font-weight:800;white-space:nowrap}.btn-soft{background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1}.btn-main{background:#c9a86a;color:#111!important;border:1px solid #c9a86a}.info-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:14px;margin-bottom:20px}.info-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:16px;color:#1f2937}.info-card span{display:block;color:#64748b;font-size:13px;font-weight:800;margin-bottom:7px}.info-card strong{display:block;color:#111827;font-size:18px;line-height:1.35}.badge-status{display:inline-flex;align-items:center;width:max-content;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:850;background:#fef3c7;color:#92400e;border:1px solid #fde68a}.badge-status.done{background:#dcfce7;color:#166534;border-color:#bbf7d0}.badge-status.shipping{background:#dbeafe;color:#1d4ed8;border-color:#bfdbfe}.badge-status.cancel{background:#fee2e2;color:#991b1b;border-color:#fecaca}.table-wrap{overflow:auto;border:1px solid #e5edf5;border-radius:16px}.detail-table{width:100%;border-collapse:collapse;min-width:920px;background:#fff;color:#1f2937}.detail-table th{background:#f8fafc;color:#475569;font-size:12px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:13px 14px;border-bottom:1px solid #e5edf5}.detail-table td{padding:15px 14px;border-bottom:1px solid #eef2f7;vertical-align:middle;color:#1f2937}.detail-table tr:last-child td{border-bottom:0}.product-cell{display:flex;align-items:center;gap:12px;min-width:260px}.product-thumb{width:64px;height:64px;object-fit:cover;border-radius:12px;background:#f1f5f9;border:1px solid #e2e8f0}.product-name{font-weight:900;color:#111827}.muted{color:#64748b}.money{font-weight:900;color:#8a4b16}.total-row{display:flex;justify-content:flex-end;margin-top:18px}.total-card{min-width:300px;background:#111827;color:#fff;border-radius:16px;padding:18px}.total-card div{display:flex;justify-content:space-between;margin:7px 0}.total-card strong{color:#f1c76d;font-size:20px}.note-box{margin-top:18px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:16px;padding:15px;color:#475569}@@media(max-width:860px){.detail-shell{padding:22px 12px}.detail-panel{padding:18px}.detail-title{flex-direction:column}.info-grid{grid-template-columns:1fr}.detail-title h2{font-size:25px}.total-card{min-width:100%}}
+</style>
+@functions {
+    public string StatusClass(string status)
+    {
+        status = status ?? "";
+        if (status.Contains("thành công") || status.Contains("Đã giao") || status.Contains("Hoàn tất")) return "done";
+        if (status.Contains("Đang giao") || status.Contains("Đã xác nhận")) return "shipping";
+        if (status.Contains("hủy") || status.Contains("Từ chối") || status.Contains("thất bại")) return "cancel";
+        return "";
+    }
+    public string ProductImage(App12COFFEE.Models.ChiTietDonHang ct)
+    {
+        var img = ct.SanPham != null ? ct.SanPham.HinhAnhSanPhams.FirstOrDefault() : null;
+        if (img == null || String.IsNullOrWhiteSpace(img.DuongDan)) return Url.Content("~/Content/logo12.jpg");
+        if (img.DuongDan.StartsWith("http", StringComparison.OrdinalIgnoreCase) || img.DuongDan.StartsWith("/")) return img.DuongDan;
+        return Url.Content("~/Content/Images/" + img.DuongDan);
+    }
+}
+<div class="detail-shell">
+    <section class="detail-panel">
+        <div class="detail-title">
+            <div>
+                <h2>Đơn hàng #@Model.MaDH</h2>
+                <p>Chi tiết sản phẩm, thanh toán và trạng thái xử lý đơn hàng.</p>
+            </div>
+            <a class="btn-soft" href="@Url.Action("LichSu", "DonHang")"><i class="fa-solid fa-arrow-left"></i> Quay lại lịch sử</a>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <span>Trạng thái đơn</span>
+                <strong><span class="badge-status @StatusClass(Model.TrangThaiDon)">@(!String.IsNullOrWhiteSpace(Model.TrangThaiDon) ? Model.TrangThaiDon : "Chưa cập nhật")</span></strong>
+            </div>
+            <div class="info-card">
+                <span>Ngày đặt</span>
+                <strong>@(Model.NgayDat.HasValue ? Model.NgayDat.Value.ToString("dd/MM/yyyy HH:mm") : "Chưa ghi nhận")</strong>
+            </div>
+            <div class="info-card">
+                <span>Thanh toán</span>
+                <strong>@(thanhToan != null ? (thanhToan.PhuongThuc + " - " + thanhToan.TrangThai) : "Chưa ghi nhận")</strong>
+            </div>
+            <div class="info-card">
+                <span>Người nhận</span>
+                <strong>@(Model.NguoiDung != null ? Model.NguoiDung.HoTen : "Chưa cập nhật")</strong>
+            </div>
+            <div class="info-card">
+                <span>Số điện thoại</span>
+                <strong>@(Model.NguoiDung != null ? Model.NguoiDung.DienThoai : "Chưa cập nhật")</strong>
+            </div>
+            <div class="info-card">
+                <span>Địa chỉ giao hàng</span>
+                <strong>@(!String.IsNullOrWhiteSpace(diaChi) ? diaChi : "Chưa cập nhật")</strong>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table class="detail-table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                        <th>Đánh giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ct in Model.ChiTietDonHangs)
+                    {
+                        var lineTotal = (ct.ThanhTien.HasValue ? ct.ThanhTien.Value : ((ct.SoLuong ?? 0) * (ct.DonGia ?? 0)));
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <img class="product-thumb" src="@ProductImage(ct)" alt="@(ct.SanPham != null ? ct.SanPham.TenSP : "Sản phẩm")" />
+                                    <div>
+                                        <div class="product-name">@(ct.SanPham != null ? ct.SanPham.TenSP : ("Sản phẩm #" + ct.MaSP))</div>
+                                        <div class="muted">Mã sản phẩm: @ct.MaSP</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@(ct.SoLuong ?? 0)</td>
+                            <td>@String.Format("{0:N0}đ", ct.DonGia ?? 0)</td>
+                            <td><span class="money">@String.Format("{0:N0}đ", lineTotal)</span></td>
+                            <td>
+                                @if (isDone)
+                                {
+                                    <a class="btn-soft" href="@Url.Action("Tao", "DanhGia", new { maSP = ct.MaSP })">Đánh giá</a>
+                                }
+                                else
+                                {
+                                    <span class="muted">Sau khi giao thành công</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total-row">
+            <div class="total-card">
+                <div><span>Tạm tính</span><span>@String.Format("{0:N0}đ", (Model.TongTien ?? 0) - (Model.PhiVanChuyen ?? 0))</span></div>
+                <div><span>Phí vận chuyển</span><span>@String.Format("{0:N0}đ", Model.PhiVanChuyen ?? 0)</span></div>
+                <div><span>Tổng thanh toán</span><strong>@String.Format("{0:N0}đ", Model.TongTien ?? 0)</strong></div>
+            </div>
+        </div>
+
+        @if (!isDone)
+        {
+            <div class="note-box">Bạn có thể gửi đánh giá sản phẩm sau khi đơn hàng được giao thành công.</div>
+        }
+    </section>
+</div>
+
+

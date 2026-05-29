@@ -56,7 +56,7 @@
 <div>
     <h2>Thông tin nhân viên</h2>
     <div class="header-actions">
-        <a href="@Url.Action("ThemNhanVien", "Admin_65130628")" class="btn btn-success">
+        <a href="@Url.Action("ThemNhanVien", "Admin")" class="btn btn-success">
             <i class="fa fa-plus"></i> Thêm nhân viên
         </a>
     </div>
@@ -93,7 +93,7 @@
                 <td>@nv.NgayTao.ToString("dd/MM/yyyy")</td>
                 <td>@(nv.TrangThai ? "Hoạt động" : "Ngừng")</td>
                 <td>
-                    <a href="@Url.Action("XoaNhanVien", "Admin_65130628", new { id = nv.MaND })"
+                    <a href="@Url.Action("XoaNhanVien", "Admin", new { id = nv.MaND })"
                        class="btn btn-danger btn-sm"
                        onclick="return confirm('Bạn có chắc muốn xóa nhân viên này?');">
                         Xóa

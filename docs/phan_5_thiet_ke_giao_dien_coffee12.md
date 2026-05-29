@@ -1,0 +1,75 @@
+# PHẦN 5. THIẾT KẾ GIAO DIỆN
+
+## 5.1 Mục tiêu thiết kế giao diện
+
+Phần thiết kế giao diện mô tả cách người dùng tương tác với hệ thống quản lý bán hàng COFFEE 12. Nội dung được xây dựng dựa trên mã nguồn hiện có trong project App12COFFEE, phần phân tích yêu cầu, thiết kế dữ liệu và thiết kế hàm xử lý của báo cáo. Mục tiêu là xác định các màn hình cần có, dữ liệu hiển thị, thao tác chính và mối liên hệ giữa giao diện với cơ sở dữ liệu.
+
+Giao diện được thiết kế theo bốn nhóm người dùng: khách hàng, nhân viên duyệt đơn, nhân viên giao hàng và quản trị. Các màn hình chỉ phục vụ những nghiệp vụ đã nêu trong báo cáo, không bổ sung các nghiệp vụ ngoài phạm vi như voucher, tích điểm, đặt bàn, quản lý nguyên liệu hoặc quản lý ca làm.
+
+## 5.2 Cơ sở đối chiếu
+
+- Công nghệ project hiện có: ASP.NET MVC 5, Razor View, Entity Framework 6, SQL Server, Bootstrap, jQuery.
+- Nhóm bảng dữ liệu liên quan: VaiTro, NguoiDung, DiaChiGiaoHang, DanhMuc, SanPham, HinhAnhSanPham, GioHang, ChiTietGioHang, DonHang, ChiTietDonHang, ThanhToan, DanhGia, AIChat, AITinNhan.
+- Nhóm hàm xử lý liên quan: DangKyTaiKhoanKhachHang, CapNhatDiaChiGiaoHang, TimKiemSanPham, ThemHoacCapNhatGioHang, XoaSanPhamKhoiGioHang, TaoDonHangOnline, DuyetDonHangVaPhanCong, TuChoiDonHang, CapNhatGiaoHangVaThanhToan, GuiDanhGiaSanPham, XuLyChatAITuVan, CapNhatSanPhamVaHinhAnh, LapThongKeDonHang.
+- Tình trạng project: đã có nhiều màn hình khách hàng, quản trị sản phẩm, đơn hàng, thanh toán và nhân viên giao hàng; một số màn hình như đánh giá sản phẩm, Chat AI, lịch sử đơn hàng khách hàng và quản lý danh mục mới có dữ liệu/model hoặc mới cần mô tả ở mức thiết kế giao diện.
+
+## 5.3 Danh sách màn hình theo nhóm người dùng
+
+| STT | Ten man hinh | Nguoi su dung | Muc dich | Du lieu hien thi/nhap | Thao tac chinh | Bang du lieu lien quan | Ham xu ly lien quan | Tinh trang trong project |
+|---:|---|---|---|---|---|---|---|---|
+| 1 | Dang ky tai khoan | Khach hang | Tao tai khoan de dat hang, quan ly dia chi va theo doi cac thao tac mua hang. | Ten dang nhap, mat khau, ho ten, email, dien thoai, dia chi giao hang, tinh/thanh pho, quan/huyen, phuong/xa. | Nhap thong tin, gui dang ky, nhan/xac thuc OTP email. | NguoiDung, DiaChiGiaoHang, VaiTro | DangKyTaiKhoanKhachHang | Da co trong project: Views/NguoiDungs/DangKy.cshtml, kem XacThucOTP. |
+| 2 | Dang nhap tai khoan | Khach hang, nhan vien duyet don, nhan vien giao hang, quan tri | Xac thuc nguoi dung va dieu huong theo vai tro su dung. | Ten dang nhap, mat khau, thong bao loi neu dang nhap khong hop le. | Dang nhap, chuyen den trang phu hop voi vai tro, dang xuat. | NguoiDung, VaiTro | DangKyTaiKhoanKhachHang | Da co trong project: Views/NguoiDungs/DangNhap.cshtml. |
+| 3 | Menu san pham | Khach hang | Hien thi danh sach do uong de khach hang xem, loc theo danh muc va chon mon. | Danh muc, ten san pham, hinh anh, mo ta ngan, gia ban, trang thai kinh doanh. | Loc theo danh muc, xem danh sach san pham, them san pham vao gio hang. | DanhMuc, SanPham, HinhAnhSanPham, GioHang, ChiTietGioHang | TimKiemSanPham, ThemHoacCapNhatGioHang | Da co trong project: Views/Home/Menu.cshtml. |
+| 4 | Chi tiet san pham | Khach hang | Cung cap thong tin chi tiet cua mot san pham truoc khi them vao gio hang. | Ten san pham, hinh anh, mo ta, gia ban, so luong ton, danh muc. | Xem thong tin chi tiet, chon them vao gio hang. | SanPham, DanhMuc, HinhAnhSanPham, GioHang, ChiTietGioHang | TimKiemSanPham, ThemHoacCapNhatGioHang | Con thieu man hinh rieng; co the bo sung minh hoa trong Phan 5 neu khong can code backend. |
+| 5 | Gio hang | Khach hang | Quan ly cac san pham da chon truoc khi dat hang. | Danh sach san pham trong gio, so luong, don gia, thanh tien, tong tien tam tinh. | Cap nhat so luong, xoa san pham khoi gio, nhap thong tin nhan hang, chon phuong thuc thanh toan. | GioHang, ChiTietGioHang, SanPham, HinhAnhSanPham, DiaChiGiaoHang | ThemHoacCapNhatGioHang, XoaSanPhamKhoiGioHang, TaoDonHangOnline | Da co trong project: Views/GioHang/Index.cshtml. |
+| 6 | Dat hang online va thanh toan | Khach hang | Tao don hang chinh thuc tu gio hang va ghi nhan thong tin thanh toan ban dau. | Thong tin nguoi nhan, dia chi, so dien thoai, phuong thuc thanh toan, tong tien. | Xac nhan dat hang, tao DonHang va ChiTietDonHang, ghi ThanhToan, chuyen QR neu can. | DonHang, ChiTietDonHang, ThanhToan, DiaChiGiaoHang, GioHang, ChiTietGioHang, SanPham | TaoDonHangOnline, CapNhatGiaoHangVaThanhToan | Da co mot phan trong project qua form thanh toan o Views/GioHang/Index.cshtml va Views/ThanhToan/ThanhToanThanhCong.cshtml. |
+| 7 | Lich su don hang | Khach hang | Cho phep khach hang theo doi cac don da dat va trang thai xu ly. | Ma don, ngay dat, tong tien, phuong thuc thanh toan, trang thai don. | Xem danh sach don, loc theo trang thai, mo chi tiet don. | DonHang, ThanhToan, NguoiDung | TaoDonHangOnline, CapNhatGiaoHangVaThanhToan | Con thieu trong project; can bo sung minh hoa cho Phan 5. |
+| 8 | Chi tiet don hang | Khach hang | Hien thi toan bo thong tin cua mot don hang da dat. | Thong tin nguoi nhan, dia chi, danh sach san pham, so luong, don gia, tong tien, trang thai thanh toan. | Xem chi tiet, theo doi trang thai, chuyen sang danh gia khi don hoan tat. | DonHang, ChiTietDonHang, SanPham, ThanhToan, DiaChiGiaoHang | TaoDonHangOnline, GuiDanhGiaSanPham | Con thieu man hinh khach hang; project co chi tiet don o khu vuc quan tri. |
+| 9 | Danh gia san pham | Khach hang | Thu thap phan hoi sau mua doi voi san pham trong don hang da hoan tat. | San pham da mua, so sao, noi dung danh gia, ngay danh gia. | Chon san pham, nhap so sao, gui danh gia. | DanhGia, DonHang, ChiTietDonHang, SanPham, NguoiDung | GuiDanhGiaSanPham | Con thieu trong project; can bo sung minh hoa cho Phan 5. |
+| 10 | Chat AI tu van | Khach hang | Ho tro khach hang hoi ve menu, goi y san pham va luu lich su tu van. | Cau hoi cua khach, cau tra loi, thoi diem gui, lich su hoi thoai, goi y san pham. | Nhap cau hoi, gui tin nhan, xem cau tra loi, tiep tuc phien chat. | AIChat, AITinNhan, NguoiDung, SanPham, DanhMuc | XuLyChatAITuVan | Con thieu trong project; model da co AIChat va AITinNhan. |
+| 11 | Dashboard nhan vien duyet don | Nhan vien duyet don | Tong hop nhanh so lieu lien quan den don cho duyet va don da xu ly. | Tong don cho duyet, tong don da duyet, tong san pham, tong nguoi dung. | Xem tong quan, di den danh sach don cho duyet. | DonHang, ChiTietDonHang, SanPham, NguoiDung | DuyetDonHangVaPhanCong, TuChoiDonHang | Da co trong project: Views/NhanVienDuyetDon/Dashboard.cshtml, nhung con mong ve danh sach/chi tiet. |
+| 12 | Danh sach don cho duyet | Nhan vien duyet don | Hien thi cac don hang dang cho xac nhan de nhan vien kiem tra. | Ma don, khach hang, ngay dat, tong tien, thanh toan, trang thai. | Mo chi tiet don, duyet don, tu choi don. | DonHang, ChiTietDonHang, ThanhToan, NguoiDung | DuyetDonHangVaPhanCong, TuChoiDonHang | Da co mot phan trong Views/DonHangAdmin/Index.cshtml; can mo ta la man hinh dung cho nhan vien duyet/admin. |
+| 13 | Chi tiet don va phan cong giao hang | Nhan vien duyet don | Kiem tra thong tin don, san pham, ton kho va phan cong nhan vien giao hang. | Thong tin khach, dia chi, chi tiet san pham, thanh toan, danh sach nhan vien giao hang. | Duyet don, tu choi don, ghi chu xu ly, chon nhan vien giao hang. | DonHang, ChiTietDonHang, SanPham, DiaChiGiaoHang, ThanhToan, NguoiDung | DuyetDonHangVaPhanCong, TuChoiDonHang | Project co chi tiet don o Views/DonHangAdmin/Details.cshtml; phan cong giao hang ro rang con thieu. |
+| 14 | Dashboard nhan vien giao hang | Nhan vien giao hang | Hien thi cac don da duoc duyet/de giao cho nhan vien giao hang. | Danh sach don, khach hang, dia chi, tong tien, trang thai don. | Nhan don giao, cap nhat dang giao, cap nhat giao thanh cong. | DonHang, ChiTietDonHang, NguoiDung, DiaChiGiaoHang, ThanhToan | CapNhatGiaoHangVaThanhToan | Da co trong project: Views/NhanVienGiaoHang/Dashboard.cshtml. |
+| 15 | Chi tiet giao hang va ghi nhan thanh toan | Nhan vien giao hang | Kiem tra thong tin giao hang va cap nhat ket qua giao/thu tien. | Nguoi nhan, so dien thoai, dia chi, tong tien can thu, phuong thuc thanh toan, trang thai thanh toan. | Cap nhat dang giao, giao thanh cong, giao that bai, ghi nhan thanh toan COD. | DonHang, ChiTietDonHang, ThanhToan, DiaChiGiaoHang, NguoiDung | CapNhatGiaoHangVaThanhToan | Con thieu man hinh chi tiet; project moi co dashboard va nut cap nhat trang thai. |
+| 16 | Dashboard quan tri | Quan tri | Cung cap tong quan he thong cho quan tri vien. | Tong nguoi dung, tong san pham, don cho xac nhan, don da duyet. | Di den quan ly san pham, don hang, nguoi dung, thong ke. | NguoiDung, SanPham, DonHang, ThanhToan | LapThongKeDonHang | Da co trong project: Views/Admin/Index.cshtml. |
+| 17 | Quan ly danh muc | Quan tri | Quan ly cac nhom san pham hien thi tren menu. | Ma danh muc, ten danh muc, mo ta, thu tu, trang thai. | Them, sua, an/hien hoac xoa danh muc neu hop le. | DanhMuc, SanPham | CapNhatSanPhamVaHinhAnh, TimKiemSanPham | Con thieu man hinh rieng trong project. |
+| 18 | Quan ly san pham va hinh anh | Quan tri | Quan ly menu san pham, gia ban, ton kho, trang thai kinh doanh va hinh anh. | Danh sach san pham, danh muc, gia, so luong ton, trang thai, anh dai dien. | Them san pham, sua san pham, upload hinh anh, ngung ban/xoa san pham. | SanPham, DanhMuc, HinhAnhSanPham | CapNhatSanPhamVaHinhAnh, TimKiemSanPham | Da co trong project: Views/SanPhamAdmin/Index.cshtml, ThemSanPham, SuaSanPham. |
+| 19 | Quan ly nguoi dung va nhan vien | Quan tri | Quan ly tai khoan khach hang va tai khoan nhan vien trong he thong. | Ho ten, email, dien thoai, vai tro, trang thai, ngay tao. | Xem danh sach, xem chi tiet, them nhan vien, xoa/tam ngung tai khoan. | NguoiDung, VaiTro, DiaChiGiaoHang | DangKyTaiKhoanKhachHang, CapNhatDiaChiGiaoHang | Da co trong project: Views/Admin/QuanLyNguoiDung.cshtml, ThongTinNhanVien, ThemNhanVien. |
+| 20 | Theo doi don hang va thanh toan | Quan tri, nhan vien duyet don | Theo doi cac don hang, trang thai duyet va trang thai thanh toan. | Ma don, khach hang, tong tien, phuong thuc thanh toan, trang thai thanh toan, trang thai don. | Xem don cho xac nhan, xem don da duyet, xem chi tiet, duyet don hop le. | DonHang, ChiTietDonHang, ThanhToan, NguoiDung, DiaChiGiaoHang | DuyetDonHangVaPhanCong, TuChoiDonHang, CapNhatGiaoHangVaThanhToan | Da co trong project: Views/DonHangAdmin/Index.cshtml, DonDaDuyet, Details. |
+| 21 | Thong ke doanh thu va don hang | Quan tri | Tong hop ket qua kinh doanh theo thang/nam de phuc vu bao cao. | Doanh thu theo thang, doanh thu theo nam, tong don, trang thai don. | Xem bieu do, loc thoi gian, xem doanh thu moi nhat. | DonHang, ChiTietDonHang, ThanhToan | LapThongKeDonHang | Da co trong project: Views/Admin/DoanhThu.cshtml va Views/ThongkeAdmin/DoanhThuThang.cshtml. |
+| 22 | Tra cuu danh gia va lich su Chat AI | Quan tri | Ho tro cham soc sau mua va nam bat noi dung tu van cua khach hang. | Danh gia san pham, so sao, noi dung chat, nguoi gui, thoi diem. | Tra cuu danh gia, xem lich su chat theo khach hang/phien chat. | DanhGia, AIChat, AITinNhan, NguoiDung, SanPham | GuiDanhGiaSanPham, XuLyChatAITuVan | Con thieu trong project; nen mo ta o muc thiet ke giao dien. |
+
+## 5.4 Mô tả giao diện nhóm khách hàng
+
+### 5.4.1 Đăng ký và đăng nhập
+
+Màn hình đăng ký cho phép khách hàng nhập thông tin tài khoản, thông tin liên hệ và địa chỉ giao hàng ban đầu. Sau khi gửi đăng ký, hệ thống kiểm tra thông tin, gửi OTP qua email và kích hoạt tài khoản nếu OTP hợp lệ. Màn hình đăng nhập dùng chung cho các vai trò trong hệ thống; sau khi đăng nhập thành công, hệ thống điều hướng theo vai trò của tài khoản.
+
+### 5.4.2 Menu, chi tiết sản phẩm và giỏ hàng
+
+Màn hình menu hiển thị sản phẩm theo danh mục, kèm hình ảnh, tên món, giá bán và thao tác thêm vào giỏ. Khi khách hàng chọn sản phẩm, hệ thống ghi dữ liệu vào giỏ hàng và chi tiết giỏ hàng. Màn hình giỏ hàng cho phép khách hàng xem danh sách sản phẩm đã chọn, cập nhật số lượng, xóa sản phẩm và chuẩn bị thông tin đặt hàng.
+
+### 5.4.3 Đặt hàng, lịch sử đơn và chi tiết đơn
+
+Màn hình đặt hàng online tiếp nhận thông tin người nhận, địa chỉ giao hàng, phương thức thanh toán và ghi nhận đơn hàng chính thức. Sau khi đặt hàng, khách hàng cần có màn hình lịch sử đơn hàng để theo dõi trạng thái và màn hình chi tiết đơn để xem sản phẩm, số tiền, địa chỉ nhận hàng và trạng thái thanh toán. Project hiện đã có luồng tạo đơn từ giỏ hàng nhưng chưa có màn hình lịch sử/chi tiết đơn cho khách hàng một cách rõ ràng.
+
+### 5.4.4 Đánh giá sản phẩm và Chat AI
+
+Màn hình đánh giá sản phẩm chỉ xuất hiện khi đơn hàng đã hoàn tất và sản phẩm thuộc chi tiết đơn hàng của khách. Màn hình Chat AI tư vấn cho phép khách hàng đặt câu hỏi về menu, sản phẩm và nhận câu trả lời tư vấn; dữ liệu hội thoại được lưu thành phiên chat và tin nhắn. Hai màn hình này hiện cần bổ sung minh họa ở mức thiết kế giao diện vì project đã có model dữ liệu nhưng chưa thấy view tương ứng.
+
+## 5.5 Mô tả giao diện nhóm nhân viên duyệt đơn
+
+Nhân viên duyệt đơn cần màn hình tổng quan để xem số đơn chờ xử lý và danh sách đơn hàng chờ duyệt. Khi mở chi tiết đơn, nhân viên kiểm tra thông tin khách hàng, địa chỉ giao hàng, sản phẩm trong đơn, trạng thái thanh toán và tồn kho. Sau khi kiểm tra, nhân viên có thể duyệt đơn, từ chối đơn kèm lý do hoặc phân công nhân viên giao hàng. Project hiện đã có một số màn hình đơn hàng trong khu vực quản trị nhưng màn hình riêng cho vai trò nhân viên duyệt đơn còn mỏng.
+
+## 5.6 Mô tả giao diện nhóm nhân viên giao hàng
+
+Nhân viên giao hàng cần màn hình danh sách đơn được phân công, trong đó mỗi đơn hiển thị khách hàng, địa chỉ, số điện thoại, tổng tiền và trạng thái giao hàng. Màn hình chi tiết giao hàng cần hỗ trợ cập nhật trạng thái đang giao, giao thành công, giao thất bại và ghi nhận thanh toán khi đơn thanh toán bằng tiền mặt. Project hiện đã có dashboard giao hàng và thao tác cập nhật trạng thái cơ bản.
+
+## 5.7 Mô tả giao diện nhóm quản trị
+
+Quản trị viên sử dụng các màn hình quản lý danh mục, sản phẩm, hình ảnh, người dùng, nhân viên, đơn hàng, thanh toán và thống kê doanh thu. Project hiện đã có dashboard quản trị, quản lý sản phẩm, quản lý khách hàng/nhân viên, theo dõi đơn hàng và thống kê doanh thu. Màn hình quản lý danh mục riêng, tra cứu đánh giá và lịch sử Chat AI chưa thấy trong project nên cần mô tả ở mức thiết kế để bảo đảm khớp cơ sở dữ liệu.
+
+## 5.8 Nhận xét về mức độ khớp giữa project và báo cáo
+
+Project App12COFFEE đã đáp ứng phần lớn giao diện cốt lõi cho khách hàng, quản trị sản phẩm, đơn hàng, thanh toán và nhân viên giao hàng. Các màn hình hiện có phù hợp với nghiệp vụ xem menu, quản lý giỏ hàng, đặt hàng online, duyệt đơn, giao hàng và thống kê. Tuy nhiên, để Phần 5 đầy đủ theo báo cáo COFFEE 12, tài liệu giao diện cần mô tả thêm các màn hình còn thiếu nhưng không phát sinh nghiệp vụ mới: lịch sử đơn hàng khách hàng, chi tiết đơn hàng khách hàng, đánh giá sản phẩm, Chat AI tư vấn, quản lý danh mục, phân công giao hàng rõ ràng và tra cứu đánh giá/lịch sử Chat AI.
