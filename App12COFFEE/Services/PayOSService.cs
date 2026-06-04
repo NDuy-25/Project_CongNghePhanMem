@@ -22,8 +22,8 @@ namespace App12COFFEE.Services
             if (maDH <= 0) throw new Exception("MaDH không hợp lệ.");
             if (amount <= 0) throw new Exception("Amount không hợp lệ (phải là số nguyên > 0).");
 
-            string returnUrl = $"{basePublicUrl}/ThanhToan_65130628/ThanhToanThanhCong?maDH={maDH}";
-            string cancelUrl = $"{basePublicUrl}/ThanhToan_65130628/ThanhToanThatBai?maDH={maDH}";
+            string returnUrl = $"{basePublicUrl}/ThanhToan/ThanhToanThanhCong?maDH={maDH}";
+            string cancelUrl = $"{basePublicUrl}/ThanhToan/ThanhToanThatBai?maDH={maDH}";
             string description = $"Thanh toan don hang {maDH}";
 
             // ✅ SIGNATURE theo chuẩn PayOS:

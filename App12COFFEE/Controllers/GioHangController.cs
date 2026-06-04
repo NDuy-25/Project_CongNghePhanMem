@@ -57,7 +57,7 @@ namespace App12COFFEE.Controllers
         public ActionResult Index()
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var gh = LayGioHangCuaUser();
             var user = db.NguoiDungs.FirstOrDefault(x => x.MaND == maND.Value);
@@ -99,13 +99,13 @@ namespace App12COFFEE.Controllers
         public ActionResult Them(int maSP)
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var gh = LayGioHangCuaUser();
             if (gh == null) return RedirectToAction("Index");
 
             var sp = db.SanPhams.Find(maSP);
-            if (sp == null) return Redirect(Request.UrlReferrer?.ToString() ?? Url.Action("Menu", "Home_65130628"));
+            if (sp == null) return Redirect(Request.UrlReferrer?.ToString() ?? Url.Action("Menu", "Home"));
 
             var ct = db.ChiTietGioHangs.FirstOrDefault(x => x.MaGH == gh.MaGH && x.MaSP == maSP);
             if (ct == null)
@@ -127,7 +127,7 @@ namespace App12COFFEE.Controllers
             db.SaveChanges();
             CapNhatSoLuongGio(gh);
 
-            return Redirect(Request.UrlReferrer?.ToString() ?? Url.Action("Menu", "Home_65130628"));
+            return Redirect(Request.UrlReferrer?.ToString() ?? Url.Action("Menu", "Home"));
         }
 
         // ================== CẬP NHẬT GIỎ HÀNG ==================
@@ -136,7 +136,7 @@ namespace App12COFFEE.Controllers
         public ActionResult CapNhatGioHang(FormCollection form)
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var gh = LayGioHangCuaUser();
             if (gh == null) return RedirectToAction("Index");
@@ -175,7 +175,7 @@ namespace App12COFFEE.Controllers
         public ActionResult Xoa(int maSP)
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var gh = LayGioHangCuaUser();
             if (gh == null) return RedirectToAction("Index");
@@ -204,7 +204,7 @@ namespace App12COFFEE.Controllers
         public ActionResult ThanhToan(string HoTen, string DienThoai, string DiaChi, string GhiChu, string PhuongThuc, FormCollection form)
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var gh = LayGioHangCuaUser();
             if (gh == null) return RedirectToAction("Index");
@@ -314,7 +314,7 @@ namespace App12COFFEE.Controllers
             // 8) Nếu VietQR -> chuyển sang PayOS QR
             if (PhuongThuc == "VietQR")
             {
-                return RedirectToAction("ThanhToanVietQR", "ThanhToan_65130628", new { maDH = don.MaDH });
+                return RedirectToAction("ThanhToanVietQR", "ThanhToan", new { maDH = don.MaDH });
             }
 
             // 9) COD -> giữ luồng cũ
@@ -341,3 +341,4 @@ namespace App12COFFEE.Controllers
         }
     }
 }
+

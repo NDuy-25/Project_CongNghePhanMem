@@ -137,6 +137,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AIChatController.cs" />
+    <Compile Include="Controllers\DanhGiaController.cs" />
+    <Compile Include="Controllers\DanhMucAdminController.cs" />
+    <Compile Include="Controllers\DonHangController.cs" />
+    <Compile Include="Controllers\TheoDoiAdminController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DonHangAdminController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -227,6 +232,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\AIChat.css" />
     <Content Include="Content\Cart.css" />
     <Content Include="Content\contact.css" />
     <Content Include="Content\GioiThieu.css" />
@@ -331,6 +337,7 @@
     <Content Include="Content\logo12.jpg" />
     <Content Include="Content\Menu.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\ProductDetail.css" />
     <Content Include="Content\ThanhToanQR.css" />
     <Content Include="Content\ThanhToanThanhCong.css" />
     <Content Include="Content\ThongTinNguoiDung.css" />
@@ -406,6 +413,13 @@
     <Content Include="Views\DonHangAdmin\Index.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\GioHang\ThanhToanThanhCong.cshtml" />
+    <Content Include="Views\AIChat\Index.cshtml" />
+    <Content Include="Views\DanhGia\Tao.cshtml" />
+    <Content Include="Views\DanhMucAdmin\Index.cshtml" />
+    <Content Include="Views\DonHang\ChiTiet.cshtml" />
+    <Content Include="Views\DonHang\LichSu.cshtml" />
+    <Content Include="Views\Home\ChiTietSanPham.cshtml" />
+    <Content Include="Views\TheoDoiAdmin\DanhGiaVaChat.cshtml" />
     <Content Include="Views\Home\GioiThieu.cshtml" />
     <Content Include="Views\Home\LienHe.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
@@ -418,10 +432,16 @@
     <Content Include="Views\TaiKhoan\DoiMatKhau.cshtml" />
     <Content Include="Views\TaiKhoan\ThongTin.cshtml" />
     <Content Include="Views\ThanhToan\ThanhToanThanhCong.cshtml" />
+    <Content Include="Views\ThanhToan\ThanhToanVietQR.cshtml" />
     <Content Include="Views\ThongkeAdmin\DoanhThuThang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TheoDoiAdmin\" />
+    <Folder Include="Views\DonHang\" />
+    <Folder Include="Views\DanhMucAdmin\" />
+    <Folder Include="Views\DanhGia\" />
+    <Folder Include="Views\AIChat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -494,3 +514,5 @@
   <Target Name="AfterBuild">
   </Target> -->
 </Project>
+
+

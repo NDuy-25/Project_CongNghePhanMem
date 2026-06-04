@@ -39,11 +39,11 @@ namespace App12COFFEE.Controllers
             return null;
         }
 
-        // GET: /TaiKhoan_65130628/ThongTin
+        // GET: /TaiKhoan/ThongTin
         public ActionResult ThongTin()
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var user = db.NguoiDungs.FirstOrDefault(x => x.MaND == maND.Value);
             if (user == null) return HttpNotFound();
@@ -57,7 +57,7 @@ namespace App12COFFEE.Controllers
         public ActionResult CapNhatDiaChi(string DiaChiGiaoHang, string Tinh, string Huyen, string Xa)
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var user = db.NguoiDungs.FirstOrDefault(x => x.MaND == maND.Value);
             if (user == null) return HttpNotFound();
@@ -73,13 +73,13 @@ namespace App12COFFEE.Controllers
             return RedirectToAction("ThongTin");
         }
 
-        // POST: /TaiKhoan_65130628/DoiMatKhau
+        // POST: /TaiKhoan/DoiMatKhau
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DoiMatKhau(string MatKhauHienTai, string MatKhauMoi, string XacNhanMatKhauMoi)
         {
             var maND = LayMaNguoiDung();
-            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs_65130628");
+            if (!maND.HasValue) return RedirectToAction("DangNhap", "NguoiDungs");
 
             var user = db.NguoiDungs.FirstOrDefault(x => x.MaND == maND.Value);
             if (user == null) return HttpNotFound();

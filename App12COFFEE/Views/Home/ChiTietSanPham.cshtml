@@ -1,0 +1,78 @@
+﻿@model App12COFFEE.Models.SanPham
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    var anh = Model.HinhAnhSanPhams.FirstOrDefault();
+    var img = anh != null ? anh.DuongDan : "no-image.jpg";
+    var lienQuan = ViewBag.SanPhamLienQuan as IEnumerable<App12COFFEE.Models.SanPham>;
+}
+
+<link rel="stylesheet" href="~/Content/ProductDetail.css" />
+
+<div class="product-detail-shell">
+    <section class="product-detail-card">
+        <img class="detail-image" src="@Url.Content("~/Content/Images/" + img)" alt="@Model.TenSP" onerror="this.onerror=null;this.src='/Content/Images/no-image.jpg';" />
+        <div class="detail-info">
+            <div class="crumb">Trang chủ / Menu / @Model.TenSP</div>
+            <span class="badge-soft">@(Model.DanhMuc != null ? Model.DanhMuc.TenDM : "Sản phẩm")</span>
+            <h1>@Model.TenSP</h1>
+            <div class="detail-price">@String.Format("{0:N0}đ", Model.Gia ?? 0)</div>
+            <p class="detail-desc">@(String.IsNullOrWhiteSpace(Model.MoTaChiTiet) ? Model.MoTa : Model.MoTaChiTiet)</p>
+            <div class="detail-meta">
+                <span>Tồn kho: <strong>@(Model.SoLuongTon ?? 0)</strong></span>
+                <span>Lượt bán: <strong>@(Model.LuotBan ?? 0)</strong></span>
+            </div>
+            <div class="detail-actions">
+                <a class="btn-main" href="@Url.Action("Them", "GioHang", new { maSP = Model.MaSP })">Thêm vào giỏ</a>
+                <a class="btn-light" href="@Url.Action("Index", "AIChat")">Hỏi AI tư vấn</a>
+                <a class="btn-light" href="@Url.Action("Menu", "Home")">Quay lại Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="review-panel">
+        <h2 class="section-title">Đánh giá sản phẩm</h2>
+        @if (Model.DanhGias != null && Model.DanhGias.Any(dg => dg.IsDeleted != true && dg.TrangThai != false))
+        {
+            foreach (var dg in Model.DanhGias.Where(dg => dg.IsDeleted != true && dg.TrangThai != false).OrderByDescending(dg => dg.NgayDG))
+            {
+                <div class="review-card">
+                    <strong>@(dg.NguoiDung != null ? dg.NguoiDung.HoTen : "Khách hàng")</strong>
+                    <span class="stars">@(new string('*', dg.SoSao ?? 5))</span>
+                    <p>@dg.BinhLuan</p>
+                    <small class="muted">@(dg.NgayDG.HasValue ? dg.NgayDG.Value.ToString("dd/MM/yyyy HH:mm") : "")</small>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="empty-state muted">Sản phẩm chưa có đánh giá. Sau khi đơn giao thành công, khách hàng có thể gửi đánh giá tại lịch sử đơn hàng.</div>
+        }
+    </section>
+
+    <section class="related-panel">
+        <h2 class="section-title">Sản phẩm liên quan</h2>
+        <div class="related-grid">
+            @if (lienQuan != null && lienQuan.Any())
+            {
+                foreach (var sp in lienQuan)
+                {
+                    var ha = sp.HinhAnhSanPhams.FirstOrDefault();
+                    var img2 = ha != null ? ha.DuongDan : "no-image.jpg";
+                    <article class="related-card">
+                        <img src="@Url.Content("~/Content/Images/" + img2)" alt="@sp.TenSP" onerror="this.onerror=null;this.src='/Content/Images/no-image.jpg';" />
+                        <div class="related-body">
+                            <h3>@sp.TenSP</h3>
+                            <p>@String.Format("{0:N0}đ", sp.Gia ?? 0)</p>
+                            <a class="btn-light" href="@Url.Action("ChiTietSanPham", "Home", new { id = sp.MaSP })">Xem chi tiết</a>
+                        </div>
+                    </article>
+                }
+            }
+            else
+            {
+                <div class="empty-state muted">Chưa có sản phẩm liên quan.</div>
+            }
+        </div>
+    </section>
+</div>

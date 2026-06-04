@@ -7,7 +7,7 @@
 }
 
 <div class="toolbar">
-    <h2 style="color:#C9A86A;">Danh sách sản phẩm</h2>
+    <h2>Danh sách sản phẩm</h2>
     <a href="@Url.Action("ThemSanPham", "SanPhamAdmin")" class="btn btn-success">
         <i class="fa fa-plus"></i> Thêm sản phẩm
     </a>
@@ -54,11 +54,12 @@
 <div class="pagination-container">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
     {
-        DisplayLinkToFirstPage = PagedListDisplayMode.Always,
-        DisplayLinkToLastPage = PagedListDisplayMode.Always,
-        DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
-        DisplayLinkToNextPage = PagedListDisplayMode.Always,
+        DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+        DisplayLinkToLastPage = PagedListDisplayMode.Never,
+        DisplayLinkToPreviousPage = PagedListDisplayMode.IfNeeded,
+        DisplayLinkToNextPage = PagedListDisplayMode.IfNeeded,
         MaximumPageNumbersToDisplay = 5,
         UlElementClasses = new[] { "pagination" }
     })
 </div>
+

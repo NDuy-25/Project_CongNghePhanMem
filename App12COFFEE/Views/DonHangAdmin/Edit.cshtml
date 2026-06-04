@@ -1,137 +1,81 @@
-﻿
+﻿@model App12COFFEE.Models.DonHang
 @{
     ViewBag.Title = "Sửa đơn hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <style>
-    h2 {
-        color: #C9A86A;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-        color: #fff;
-    }
-
-    .form-control {
-        width: 300px;
-        padding: 8px;
-        border-radius: 5px;
-        border: 1px solid #444;
-        background: #222;
-        color: #fff;
-    }
-
-    .btn {
-        padding: 6px 12px;
-        background: #C9A86A;
-        color: #000;
-        border-radius: 5px;
-        text-decoration: none;
-        margin-right: 5px;
-    }
-
-        .btn:hover {
-            background: #b8974d;
-        }
-
-    .btn-danger {
-        background: #dc3545;
-        color: #fff !important;
-    }
-
-        .btn-danger:hover {
-            background: #b52a37;
-        }
-
-    .items-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-        .items-table th, .items-table td {
-            padding: 10px;
-            border: 1px solid #444;
-            text-align: center;
-        }
-
-        .items-table th {
-            background: #333;
-            color: #fff;
-        }
+.page-panel{background:#fff;border-radius:14px;padding:24px;box-shadow:0 12px 35px rgba(15,23,42,.08);margin-bottom:20px}.page-panel h2,.page-panel h3{color:#3b2416;font-weight:800}.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px}.summary-item{border:1px solid #e2e8f0;border-radius:12px;padding:12px;background:#f8fafc}.summary-item label{display:block;color:#64748b;font-weight:700;margin-bottom:4px}.items-table{width:100%;border-collapse:collapse;margin-top:12px}.items-table th,.items-table td{padding:12px;border-bottom:1px solid #edf2f7;text-align:left;vertical-align:middle}.items-table th{background:#f8fafc;color:#334155}.form-row{display:grid;grid-template-columns:minmax(220px,1fr) 140px auto;gap:10px;align-items:end;margin-top:12px}.form-control{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:10px;padding:10px 12px;background:#fff;color:#111827}.btn-main,.btn-light,.btn-danger{border:0;border-radius:10px;padding:9px 14px;font-weight:800;text-decoration:none!important}.btn-main{background:#c9a86a;color:#111}.btn-light{background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1}.btn-danger{background:#fee2e2;color:#991b1b!important;border:1px solid #fecaca}.alert{padding:10px 12px;border-radius:10px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;margin-bottom:14px}@@media(max-width:720px){.form-row{grid-template-columns:1fr}}
 </style>
 
-<h2>Sửa đơn hàng</h2>
+<div class="page-panel">
+    <h2>Sửa đơn hàng</h2>
 
-<!-- Thông tin chung -->
-<div class="form-group">
-    <label>Mã đơn hàng</label>
-    <span>@Model.MaDH</span>
-</div>
-<div class="form-group">
-    <label>Ngày đặt</label>
-    <span>@Model.NgayDat.ToString("dd/MM/yyyy HH:mm")</span>
-</div>
-<div class="form-group">
-    <label>Tổng tiền</label>
-    <span>@String.Format("{0:N0}", Model.TongTien) VND</span>
-</div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert">@TempData["Message"]</div>
+    }
 
-<!-- Danh sách món -->
-<h3 style="color:#C9A86A;">Danh sách món đã đặt</h3>
-<table class="items-table">
-    <thead>
-        <tr>
-            <th>Tên món</th>
-            <th>Số lượng</th>
-            <th>Đơn giá</th>
-            <th>Thành tiền</th>
-            <th>Thao tác</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var ct in Model.ChiTietDonHangs)
+    <div class="summary-grid">
+        <div class="summary-item"><label>Mã đơn hàng</label><strong>@Model.MaDH</strong></div>
+        <div class="summary-item"><label>Ngày đặt</label><strong>@(Model.NgayDat.HasValue ? Model.NgayDat.Value.ToString("dd/MM/yyyy HH:mm") : "Chưa có")</strong></div>
+        <div class="summary-item"><label>Trạng thái</label><strong>@Model.TrangThaiDon</strong></div>
+        <div class="summary-item"><label>Tổng tiền</label><strong>@String.Format("{0:N0} VND", Model.TongTien ?? 0m)</strong></div>
+    </div>
+
+    <h3>Danh sách món đã đặt</h3>
+    <table class="items-table">
+        <thead>
+            <tr><th>Tên món</th><th>Số lượng</th><th>Đơn giá</th><th>Thành tiền</th><th>Thao tác</th></tr>
+        </thead>
+        <tbody>
+        @if (Model.ChiTietDonHangs != null && Model.ChiTietDonHangs.Any())
         {
-            <tr>
-                <td>@ct.SanPham.TenSP</td>
-                <td>@ct.SoLuong</td>
-                <td>@String.Format("{0:N0}", ct.DonGia)</td>
-                <td>@String.Format("{0:N0}", ct.SoLuong * ct.DonGia)</td>
-                <td>
-                    @using (Html.BeginForm("XoaMon", "DonHangAdmin_65130628", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="maDH" value="@Model.MaDH" />
-                        <input type="hidden" name="maSP" value="@ct.MaSP" />
-                        <button type="submit" class="btn btn-danger">Xóa</button>
-                    }
-                </td>
-            </tr>
+            foreach (var ct in Model.ChiTietDonHangs)
+            {
+                <tr>
+                    <td>@(ct.SanPham != null ? ct.SanPham.TenSP : "Sản phẩm")</td>
+                    <td>@(ct.SoLuong ?? 0)</td>
+                    <td>@String.Format("{0:N0}", ct.DonGia ?? 0m)</td>
+                    <td>@String.Format("{0:N0}", (ct.SoLuong ?? 0) * (ct.DonGia ?? 0m))</td>
+                    <td>
+                        @using (Html.BeginForm("XoaMon", "DonHangAdmin", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="maDH" value="@Model.MaDH" />
+                            <input type="hidden" name="maSP" value="@ct.MaSP" />
+                            <button type="submit" class="btn-danger" onclick="return confirm('Xóa món này khỏi đơn hàng?')">Xóa</button>
+                        }
+                    </td>
+                </tr>
+            }
         }
-    </tbody>
-</table>
+        else
+        {
+            <tr><td colspan="5">Đơn hàng chưa có món.</td></tr>
+        }
+        </tbody>
+    </table>
 
-<!-- Form thêm món -->
-<h3 style="color:#C9A86A; margin-top:30px;">Thêm món vào đơn hàng</h3>
-@using (Html.BeginForm("ThemMon", "DonHangAdmin_65130628", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <input type="hidden" name="maDH" value="@Model.MaDH" />
-    <div class="form-group">
-        <label>Chọn món</label>
-        @Html.DropDownList("maSP", (SelectList)ViewBag.SanPhamList, "-- Chọn sản phẩm --", new { @class = "form-control" })
+    <h3 style="margin-top:24px">Thêm món vào đơn hàng</h3>
+    @using (Html.BeginForm("ThemMon", "DonHangAdmin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="maDH" value="@Model.MaDH" />
+        <div class="form-row">
+            <div>
+                <label>Chọn món</label>
+                @Html.DropDownList("maSP", (SelectList)ViewBag.SanPhamList, "-- Chọn sản phẩm --", new { @class = "form-control", required = "required" })
+            </div>
+            <div>
+                <label>Số lượng</label>
+                <input type="number" name="soLuong" value="1" min="1" class="form-control" required />
+            </div>
+            <button type="submit" class="btn-main">Thêm món</button>
+        </div>
+    }
+
+    <div style="margin-top:18px">
+        <a href="@Url.Action("Index", "DonHangAdmin")" class="btn-light">Quay lại</a>
     </div>
-    <div class="form-group">
-        <label>Số lượng</label>
-        <input type="number" name="soLuong" value="1" min="1" class="form-control" />
-    </div>
-    <button type="submit" class="btn">Thêm món</button>
-}
+</div>

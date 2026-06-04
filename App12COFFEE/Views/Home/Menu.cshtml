@@ -1,10 +1,10 @@
-﻿@model IEnumerable<QL12COFFEE_65130628.Models.SanPham>
+﻿@model IEnumerable<App12COFFEE.Models.SanPham>
 
 @{
     ViewBag.Title = "Menu";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 
-    var danhMucs = ViewBag.DanhMuc as IEnumerable<QL12COFFEE_65130628.Models.DanhMuc>;
+    var danhMucs = ViewBag.DanhMuc as IEnumerable<App12COFFEE.Models.DanhMuc>;
 }
 
 <link rel="stylesheet" href="~/Content/Menu.css" />
@@ -25,14 +25,14 @@
     <!-- DANH MỤC -->
     <section class="menu-category-bar fade-in-up">
         <div class="menu-category-list">
-            <a href="@Url.Action("Menu", "Home_65130628")"
+            <a href="@Url.Action("Menu", "Home")"
                class="menu-category-item @(Request["maDM"] == null ? "active" : "")">
                 Tất cả
             </a>
 
             @foreach (var dm in danhMucs)
             {
-                <a href="@Url.Action("Menu", "Home_65130628", new { maDM = dm.MaDM })"
+                <a href="@Url.Action("Menu", "Home", new { maDM = dm.MaDM })"
                    class="menu-category-item @(Request["maDM"] == dm.MaDM.ToString() ? "active" : "")">
                     @dm.TenDM
                 </a>
@@ -48,7 +48,7 @@
             var img = ha != null ? ha.DuongDan : "no-image.jpg";
             <div class="menu-card">
                 <div class="menu-card-image">
-                    <img src="@Url.Content("~/Content/Images/" + img)" alt="@sp.TenSP" />
+                    <img src="@Url.Content("~/Content/Images/" + img)" alt="@sp.TenSP" onerror="this.onerror=null;this.src='/Content/Images/no-image.jpg';" />
                 </div>
                 <div class="menu-card-body">
                     <span class="menu-card-badge">
@@ -60,7 +60,10 @@
                     </p>
                     <div class="menu-card-footer">
                         <span class="menu-card-price">@String.Format("{0:0,0}đ", sp.Gia)</span>
-                        <a href="@Url.Action("Them", "GioHang_65130628", new { maSP = sp.MaSP })" class="btn-order">Đặt hàng</a>
+                        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                            <a href="@Url.Action("ChiTietSanPham", "Home", new { id = sp.MaSP })" class="btn-order" style="background:#fff;color:#7c3f16;border:1px solid #7c3f16">Chi tiết</a>
+                            <a href="@Url.Action("Them", "GioHang", new { maSP = sp.MaSP })" class="btn-order">Đặt hàng</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,3 +101,6 @@
     </div>
 
 </div>
+
+
+

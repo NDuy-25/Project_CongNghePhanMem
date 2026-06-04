@@ -225,8 +225,7 @@ namespace App12COFFEE.Controllers
             {
                 bool isPasswordValid = false;
 
-                if ((user.VaiTro == "Admin" || user.VaiTro == "NhanVienDuyetDon" || user.VaiTro == "NhanVienGiaoHang") &&
-                    string.Equals((user.MatKhau ?? "").Trim(), (MatKhau ?? "").Trim(), StringComparison.Ordinal))
+                if (string.Equals((user.MatKhau ?? "").Trim(), (MatKhau ?? "").Trim(), StringComparison.Ordinal))
                 {
                     isPasswordValid = true;
                 }
@@ -249,15 +248,15 @@ namespace App12COFFEE.Controllers
                         switch (user.VaiTro)
                         {
                             case "Admin":
-                                return RedirectToAction("Index", "Admin_65130628");
+                                return RedirectToAction("Index", "Admin");
                             case "Customer":
-                                return RedirectToAction("TrangChu", "Home_65130628");
+                                return RedirectToAction("TrangChu", "Home");
                             case "NhanVienDuyetDon":
-                                return RedirectToAction("Dashboard", "NhanVienDuyetDon_65130628");
+                                return RedirectToAction("Dashboard", "NhanVienDuyetDon");
                             case "NhanVienGiaoHang":
-                                return RedirectToAction("Dashboard", "NhanVienGiaoHang_65130628");
+                                return RedirectToAction("Dashboard", "NhanVienGiaoHang");
                             default:
-                                return RedirectToAction("TrangChu", "Home_65130628");
+                                return RedirectToAction("TrangChu", "Home");
                         }
                     }
                     else
@@ -456,7 +455,7 @@ namespace App12COFFEE.Controllers
         public ActionResult DangXuat()
         {
             Session.Clear();
-            return RedirectToAction("TrangChu", "Home_65130628");
+            return RedirectToAction("TrangChu", "Home");
         }
 
         protected override void Dispose(bool disposing)
@@ -466,3 +465,6 @@ namespace App12COFFEE.Controllers
         }
     }
 }
+
+
+

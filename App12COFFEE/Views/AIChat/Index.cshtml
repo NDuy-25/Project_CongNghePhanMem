@@ -1,0 +1,60 @@
+﻿@model App12COFFEE.Models.AIChat
+@{
+    ViewBag.Title = "AI tư vấn";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    var goiY = ViewBag.GoiY as IEnumerable<string> ?? Enumerable.Empty<string>();
+}
+
+<link rel="stylesheet" href="~/Content/AIChat.css" />
+
+<div class="ai-chat-shell">
+    <section class="ai-chat-panel">
+        <div class="ai-chat-header">
+            <div>
+                <h2>AI tư vấn chọn món</h2>
+                <p>Hỏi theo khẩu vị, giá tiền, thời tiết, nhu cầu học tập/làm việc hoặc cách đặt hàng. AI sẽ gợi ý từ sản phẩm đang có trong SQL của COFFEE 12.</p>
+            </div>
+            <a class="ai-menu-link" href="@Url.Action("Menu", "Home")">Mở Menu</a>
+        </div>
+
+        <div class="ai-suggestions">
+            @foreach (var cauHoi in goiY)
+            {
+                using (Html.BeginForm("GuiTinNhan", "AIChat", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="noiDung" value="@cauHoi" />
+                    <button class="ai-chip" type="submit">@cauHoi</button>
+                }
+            }
+        </div>
+
+        <div class="ai-messages" id="aiMessages">
+            @foreach (var tin in Model.AITinNhans.OrderBy(t => t.ThoiGian))
+            {
+                var isUser = tin.LoaiNguoiGui == "KhachHang";
+                <div class="ai-message-row @(isUser ? "user" : "ai")">
+                    <div class="ai-bubble">
+                        <strong>@(isUser ? "Bạn" : "AI")</strong>
+                        <div>@tin.NoiDung</div>
+                        <small>@(tin.ThoiGian.HasValue ? tin.ThoiGian.Value.ToString("HH:mm dd/MM") : "")</small>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @using (Html.BeginForm("GuiTinNhan", "AIChat", FormMethod.Post, new { @class = "ai-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <input class="ai-input" name="noiDung" autocomplete="off" placeholder="Ví dụ: món nào mát ít ngọt, đồ uống dưới 30k, cà phê giúp tỉnh táo..." />
+            <button class="ai-send-btn" type="submit">Gửi</button>
+        }
+    </section>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var box = document.getElementById("aiMessages");
+        if (box) box.scrollTop = box.scrollHeight;
+    });
+</script>

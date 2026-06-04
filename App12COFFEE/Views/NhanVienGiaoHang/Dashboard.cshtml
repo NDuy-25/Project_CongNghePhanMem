@@ -1,51 +1,43 @@
-﻿
+@model IEnumerable<App12COFFEE.Models.DonHang>
 @{
-    ViewBag.Title = "Trang nhân viên giao hàng";
+    ViewBag.Title = "Nhân viên giao hàng";
     Layout = "~/Views/Shared/_LayoutNhanVienGiaoHang.cshtml";
 }
-
-<h2><i class="fa fa-truck"></i> Danh sách đơn hàng cần giao</h2>
-
-@if (TempData["Message"] != null)
-{
-    <div class="alert alert-success">@TempData["Message"]</div>
-}
-
-<div class="row">
-    @foreach (var dh in Model)
-    {
-        <div class="col-md-6">
-            <div class="card">
-                <h4><i class="fa fa-shopping-bag"></i> Đơn hàng #@dh.MaDH</h4>
-                <p><strong>Khách hàng:</strong> @(dh.NguoiDung?.HoTen ?? dh.MaND.ToString())</p>
-                <p><strong>SĐT liên hệ:</strong> @(dh.NguoiDung?.DienThoai ?? "Không có")</p>
-                <p><strong>Ngày đặt:</strong> @dh.NgayDat.ToString("dd/MM/yyyy HH:mm")</p>
-                <p><strong>Tổng tiền:</strong> @String.Format("{0:N0}", dh.TongTien) VNĐ</p>
-                <p><strong>Trạng thái:</strong> @dh.TrangThaiDon</p>
-
-                <div>
-                    @if (dh.TrangThaiDon == "Đã xác nhận")
-                    {
-                        <a href="@Url.Action("XacNhanGiao", "NhanVienGiaoHang_65130628", new { maDH = dh.MaDH })"
-                           class="btn btn-warning btn-custom"
-                           onclick="return confirm('Bạn có chắc muốn nhận đơn này để giao?');">
-                            <i class="fa fa-handshake"></i> Nhận đơn
-                        </a>
-                    }
-                    else if (dh.TrangThaiDon == "Đang giao hàng")
-                    {
-                        <a href="@Url.Action("GiaoHangThanhCong", "NhanVienGiaoHang_65130628", new { maDH = dh.MaDH })"
-                           class="btn btn-success btn-custom"
-                           onclick="return confirm('Xác nhận giao hàng thành công?');">
-                            <i class="fa fa-check"></i> Giao hàng thành công
-                        </a>
-                    }
-                    else if (dh.TrangThaiDon == "Giao hàng thành công")
-                    {
-                        <span class="badge bg-success"><i class="fa fa-check-circle"></i> Đã giao tận tay khách hàng</span>
-                    }
-                </div>
+<style>
+.page-panel{background:#fff;border-radius:14px;padding:24px;box-shadow:0 12px 35px rgba(15,23,42,.08);margin-bottom:20px}
+.page-title{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}
+.page-title h2{margin:0;color:#3b2416;font-weight:800}
+.muted{color:#64748b}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.item-card{border:1px solid #e2e8f0;border-radius:12px;padding:16px;background:#fff}
+.table-clean{width:100%;border-collapse:collapse}.table-clean th,.table-clean td{padding:12px;border-bottom:1px solid #edf2f7;text-align:left;vertical-align:top}
+.badge-soft{display:inline-block;padding:4px 10px;border-radius:999px;background:#fef3c7;color:#92400e;font-weight:700;font-size:12px}
+.btn-main{display:inline-block;background:#7c3f16;color:#fff!important;border:0;border-radius:8px;padding:9px 14px;text-decoration:none;font-weight:700}
+.btn-light{display:inline-block;background:#f8fafc;color:#334155!important;border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;text-decoration:none}
+.btn-danger-soft{display:inline-block;background:#fee2e2;color:#991b1b!important;border:1px solid #fecaca;border-radius:8px;padding:8px 12px;text-decoration:none}
+input,select,textarea{border:1px solid #cbd5e1;border-radius:8px;padding:9px 11px;width:100%;box-sizing:border-box}label{font-weight:700;margin:8px 0 4px;display:block}
+</style>
+<div class="page-panel">
+    <div class="page-title"><h2>Danh sách đơn được phân công</h2></div>
+    @if (TempData["Message"] != null) { <div class="item-card">@TempData["Message"]</div> }
+    <div class="grid">
+        @foreach (var dh in Model) {
+            var tt = dh.ThanhToans.FirstOrDefault();
+            <div class="item-card">
+                <h3>Đơn #@dh.MaDH</h3>
+                <p><strong>Khách hàng:</strong> @(dh.NguoiDung != null ? dh.NguoiDung.HoTen : dh.MaND.ToString())</p>
+                <p><strong>Điện thoại:</strong> @(dh.NguoiDung != null ? dh.NguoiDung.DienThoai : "Không có")</p>
+                <p><strong>Địa chỉ:</strong> @(dh.DiaChiGiaoHang != null ? dh.DiaChiGiaoHang.DiaChi : "Không có")</p>
+                <p><strong>Món:</strong> @String.Join(", ", dh.ChiTietDonHangs.Select(ct => (ct.SanPham != null ? ct.SanPham.TenSP : "SP") + " x" + (ct.SoLuong ?? 0)))</p>
+                <p><strong>Tổng tiền:</strong> @String.Format("{0:N0}đ", dh.TongTien ?? 0)</p>
+                <p><strong>Thanh toán:</strong> @(tt != null ? tt.PhuongThuc + " - " + tt.TrangThai : "Chưa có")</p>
+                <p><span class="badge-soft">@dh.TrangThaiDon</span></p>
+                @if (dh.TrangThaiDon == "Đã xác nhận") {
+                    <a class="btn-main" href="@Url.Action("XacNhanGiao","NhanVienGiaoHang", new { maDH = dh.MaDH })" onclick="return confirm('Nhận đơn này để giao?')">Nhận giao</a>
+                } else if (dh.TrangThaiDon == "Đang giao hàng") {
+                    <a class="btn-main" href="@Url.Action("GiaoHangThanhCong","NhanVienGiaoHang", new { maDH = dh.MaDH })" onclick="return confirm('Xác nhận giao thành công?')">Giao thành công</a>
+                    <a class="btn-danger-soft" href="@Url.Action("GiaoHangThatBai","NhanVienGiaoHang", new { maDH = dh.MaDH })" onclick="return confirm('Cập nhật giao thất bại?')">Giao thất bại</a>
+                }
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
